@@ -1,0 +1,43 @@
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #333;
+    /* Outer circle color */
+    border-top-color: transparent;
+    /* Top part transparent for spinning effect */
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    /* Spin animation */
+    margin: 20px auto;
+    /* Center the spinner */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
