@@ -1,0 +1,26 @@
+# Site settings
+title: hachico
+email: hachico@hachico.my
+description: > # this means to ignore newlines until "baseurl:"
+  hachico.my
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.hachico.my" # the base hostname & protocol for your site
+
+# User setting
+owner: hachico.my
+email: hachico@hachico.my
+facebook_username:
+twitter_username:
+github_username: hachicomy
+address:
+  - line:
+  - line:
+  # Feel free to add more lines here 
+telephone:
+copyright: hachico.my
+
+# API settings
+google_api_key:
+
+# Build settings
+markdown: kramdown
