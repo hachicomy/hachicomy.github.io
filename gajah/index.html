@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hachico | The GAJAH Stack</title>
+    <meta name="description"
+        content="Bank-Grade Open Source Data Infrastructure. Escape the licensing trap with the GAJAH Stack.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.hachico.my/gajah/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hachico.my/gajah/">
+    <meta property="og:title" content="hachico | The GAJAH Stack">
+    <meta property="og:description"
+        content="Bank-Grade Open Source Data Infrastructure. Escape the licensing trap with the GAJAH Stack.">
+    <meta property="og:image" content="https://www.hachico.my/gajah/gajahstack.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.hachico.my/gajah/">
+    <meta name="twitter:title" content="hachico | The GAJAH Stack">
+    <meta name="twitter:description"
+        content="Bank-Grade Open Source Data Infrastructure. Escape the licensing trap with the GAJAH Stack.">
+    <meta name="twitter:image" content="https://www.hachico.my/gajah/gajahstack.png">
+
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #050507;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary: #3b82f6;
+            --accent: #06b6d4;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #000000 100%);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            padding: 100px 0;
+            border-bottom: 100px solid rgba(255, 255, 255, 0.02);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 7, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 760px;
+            margin-bottom: 40px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .insight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .insight-card h3 {
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .insight-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .insight-icon {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .stack-section {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .gajah-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gajah-letter {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .gajah-letter h3 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .gajah-letter h4 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .gajah-letter p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .specs-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .spec-category h3 {
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            display: inline-block;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .spec-key {
+            color: var(--text-muted);
+        }
+
+        .spec-value {
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            text-align: right;
+        }
+
+        .badges-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .badge-item {
+            text-align: center;
+        }
+
+        .badge-title {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .badge-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            color: var(--text-main);
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-answer {
+            padding: 0 25px 25px 25px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: -10px;
+            padding-top: 20px;
+            text-align: justify;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent);
+        }
+
+        footer {
+            background-color: #020203;
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 300px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            padding-top: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        .flip {
+            display: inline-block;
+            transform: scaleX(-1);
+        }
+
+        /* Utilities replacing inline styles */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .mb-60 {
+            margin-bottom: 60px;
+        }
+
+        .w-12-pct {
+            width: 12%;
+            height: 12%;
+        }
+
+        .request-link {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mt-10 {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Hachico Logo">
+                    <title>Hachico Logo</title>
+                    <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
+                    <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+                    <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
+                    <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
+                    <circle cx="24" cy="70" r="3.5" fill="#000000" />
+                    <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
+                </svg>
+                hachico
+            </a>
+            <div class="nav-links">
+                <a href="#challenge">The Challenge</a>
+                <a href="#stack">The GAJAH Stack</a>
+                <a href="#faq">Strategic FAQ</a>
+            </div>
+            <a href="mailto:jerome@hachico.my" class="cta-button">Request Consultation</a>
+        </nav>
+    </div>
+
+    <section class="container hero">
+        <div class="hero-badges">
+            <span class="badge">Bring Your Own Cloud (BYOC)</span>
+            <span class="badge">Infrastructure as Code</span>
+            <span class="badge">100% Open Source</span>
+        </div>
+        <h1>Your Data. Your Infrastructure.<br><span class="gradient-text">Absolute Sovereignty.</span></h1>
+        <p>Enterprise organizations today face a critical dilemma: the skyrocketing cost of proprietary licensing vs.
+            the urgent need for data security. <br><br><strong>Hachico</strong> resolves this by deploying our
+            proprietary <strong>GAJAH Stack</strong> directly into your cloud—delivering banking-grade security and
+            reliability without the licensing tax.</p>
+        <div class="hero-buttons">
+            <a href="mailto:jerome@hachico.my" class="cta-button">Talk to an Architect</a>
+            <a href="#stack" class="cta-button cta-button-outline">Explore the Tech</a>
+        </div>
+    </section>
+
+    <section id="challenge" class="container">
+        <div class="section-header text-center mb-60">
+            <h2>The Executive Dilemma</h2>
+            <p class="text-muted">Why modern enterprises are fleeing proprietary database vendors.</p>
+        </div>
+
+        <div class="insights-grid">
+            <div class="insight-card">
+                <span class="insight-icon">💸</span>
+                <h3>The "Success Penalty"</h3>
+                <p>Traditional vendors charge per-core. As your application grows and succeeds, your licensing bill
+                    explodes—punishing you for your own growth. Our model charges a flat fee for management, regardless
+                    of server size.</p>
+            </div>
+            <div class="insight-card">
+                <span class="insight-icon">📦</span>
+                <h3>The "Black Box" Risk</h3>
+                <p>Managed cloud databases (PaaS) hide the infrastructure from your team. When an incident occurs, you
+                    are locked out of the root level. With Hachico, you own the infrastructure and retain full root
+                    access.</p>
+            </div>
+            <div class="insight-card">
+                <span class="insight-icon">⚖️</span>
+                <h3>The Compliance Gap</h3>
+                <p>Open source is free but "unsecured by default." Enterprises need audit trails and encryption. We
+                    bridge this gap by deploying a hardened, pre-configured framework that satisfies SOC2, HIPAA, and
+                    PCI-DSS immediately.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stack" class="container">
+        <div class="container">
+            <div class="section-header text-center">
+                <img src="gajahstack.png" class="w-12-pct" alt="The GAJAH Stack Logo">
+                <h2>Introducing The GAJAH Stack</h2>
+                <p class="text-muted">Our proprietary reference architecture for Enterprise PostgreSQL.</p>
+            </div>
+
+            <div class="gajah-container">
+                <div class="gajah-letter">
+                    <h3>G</h3>
+                    <h4>Guarded</h4>
+                    <p>Infrastructure-level Encryption at Rest (LUKS2). Data is physically unreadable without keys.</p>
+                </div>
+                <div class="gajah-letter">
+                    <h3>A</h3>
+                    <h4>Automated</h4>
+                    <p>Deployed via immutable Infrastructure-as-Code (Ansible). No manual configuration drift.</p>
+                </div>
+                <div class="gajah-letter">
+                    <h3>J</h3>
+                    <h4>Journaled</h4>
+                    <p>Immutable audit logs via pgaudit. Tracks every query for strict compliance.</p>
+                </div>
+                <div class="gajah-letter">
+                    <h3>A</h3>
+                    <h4>Available</h4>
+                    <p>Self-healing cluster with Distributed Consensus. Automatic failover in < 30s.</p>
+                </div>
+                <div class="gajah-letter">
+                    <h3>H</h3>
+                    <h4>Hardened</h4>
+                    <p>OS-level tuning (CIS Benchmarks), kernel watchdogs, and connection pooling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="container">
+        <div class="section-header text-center">
+            <h2>Technical Specifications</h2>
+            <p class="text-muted">Audit-ready infrastructure standards.</p>
+        </div>
+
+        <div class="specs-container">
+            <div class="specs-grid">
+
+                <div class="spec-category">
+                    <h3>Data Security</h3>
+                    <div class="spec-item">
+                        <span class="spec-key">Encryption at Rest</span>
+                        <span class="spec-value">LUKS2 (AES-256)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Transport Layer</span>
+                        <span class="spec-value">TLS 1.3 Forced</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Auth Mechanism</span>
+                        <span class="spec-value">SCRAM-SHA-256</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Network Policy</span>
+                        <span class="spec-value">Host-Based (Firewalld)</span>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3>Compliance & Logic</h3>
+                    <div class="spec-item">
+                        <span class="spec-key">Audit Extension</span>
+                        <span class="spec-value">pgaudit (Certified)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Log Destination</span>
+                        <span class="spec-value">Immutable System Logs</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Split-Brain Safety</span>
+                        <span class="spec-value">Softdog Watchdog</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Quorum Protocol</span>
+                        <span class="spec-value">Raft (Etcd v3)</span>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3>Architecture</h3>
+                    <div class="spec-item">
+                        <span class="spec-key">OS Baseline</span>
+                        <span class="spec-value">AlmaLinux 9 / RHEL 9</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Core Engine</span>
+                        <span class="spec-value">PostgreSQL 17</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Connection Pooler</span>
+                        <span class="spec-value">PgBouncer (Transaction)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-key">Disaster Recovery</span>
+                        <span class="spec-value">pgBackRest (S3/Azure)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="badges-container">
+            <div class="badge-item">
+                <div class="badge-title">SOC 2 Type II</div>
+                <div class="badge-desc">Ready Architecture</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-title">HIPAA</div>
+                <div class="badge-desc">Security Rule Compliant</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-title">PCI-DSS</div>
+                <div class="badge-desc">Req 3.4 (Storage) Met</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="container">
+        <div class="section-header text-center">
+            <h2>Strategic Considerations</h2>
+            <p class="text-muted">Common questions from the CIO and Risk Committee.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">What do you mean by "Bring Your Own Cloud"? <span>+</span></button>
+                <div class="faq-answer">
+                    We do not host your data. We deploy the GAJAH Stack directly into <strong>your</strong> AWS, Azure,
+                    or On-Premise environment. You retain full data sovereignty and pay the cloud provider directly. We
+                    simply maintain a management tunnel to keep the system healthy. This ensures you are never "vendor
+                    locked" to our hosting platform.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What is our "Exit Strategy"? <span>+</span></button>
+                <div class="faq-answer">
+                    This is our strongest differentiator. Since the software is standard Open Source PostgreSQL and the
+                    infrastructure lives in your account, if you terminate our contract, <strong>you keep
+                        everything.</strong> We hand over the encryption keys and administrative credentials. Your
+                    database keeps running. There is zero technical debt in leaving.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How does this compare to AWS RDS or Aurora? <span>+</span></button>
+                <div class="faq-answer">
+                    RDS charges a significant markup on compute and locks you into their ecosystem. The GAJAH Stack runs
+                    on raw EC2/Compute instances, which is often 40-60% cheaper. Furthermore, we provide "Superuser"
+                    extensions and tuning capabilities that RDS blocks for security reasons, giving your engineers more
+                    power.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Who handles "Hit By A Bus" risk? <span>+</span></button>
+                <div class="faq-answer">
+                    Relying on a single internal DBA creates a critical point of failure. Hachico removes this risk by
+                    combining a self-healing infrastructure with specialized engineering oversight. We act as your
+                    fractional Database Reliability team, ensuring institutional knowledge is codified in automation
+                    rather than locked in one employee's head—all for significantly less than the cost of a full-time
+                    senior hire.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>
+                        GAJAH Stack<img src="gajahstack.png" class="w-12-pct" alt="GAJAH Stack Logo">
+                    </h3>
+                    <p>
+                        Enterprise PostgreSQL without the licensing trap.
+                        <br><br>
+                        <strong>Developed by Hachico.</strong><br>
+                        Guarding data sovereignty for modern enterprises.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#stack">GAJAH Stack</a></li>
+                        <li><a href="#specs">Security & Specs</a></li>
+                        <li><a href="#challenge">Why Move?</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://www.hachico.my" target="_blank" rel="noopener noreferrer">About Hachico</a>
+                        </li>
+                        <li><a href="mailto:jerome@hachico.my">Contact Leadership</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#challenge">The Business Challenge</a></li>
+                        <li><a href="#faq">Strategic FAQ</a></li>
+                        <li>
+                            <a href="mailto:jerome@hachico.my?subject=Request%20GAJAH%20Stack%20Whitepaper&body=Hi%20Jerome%2C%0A%0AI%20would%20like%20to%20request%20access%20to%20the%20technical%20whitepaper%20for%20the%20GAJAH%20Stack.%0A%0APlease%20send%20it%20to%20this%20email."
+                                class="request-link">
+                                Request Whitepaper ➔
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 hachico.my All rights reserved.</p>
+                <p class="mt-10">
+                    Your data is your most valuable asset. It deserves infrastructure that is guarded, automated, and
+                    strictly yours.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        const particleCount = 50;
+        const connectionDistance = 180;
+        const moveSpeed = 0.2;
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * moveSpeed;
+                this.vy = (Math.random() - 0.5) * moveSpeed;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - dist / connectionDistance) * 0.15})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => { resize(); init(); });
+        resize();
+        init();
+        animate();
+    </script>
+</body>
+
+</html>
