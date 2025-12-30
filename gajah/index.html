@@ -84,10 +84,12 @@
             <span class="badge">100% Open Source</span>
         </div>
         <h1>Your Data. Your Infrastructure.<br><span class="gradient-text">Absolute Sovereignty.</span></h1>
-        <p>Enterprise organizations today face a critical dilemma: the skyrocketing cost of proprietary licensing vs.
-            the urgent need for data security. <br><br><strong>Hachico</strong> resolves this by deploying our
-            proprietary <strong>GAJAH Stack</strong> directly into your cloud—delivering banking-grade security and
-            reliability without the licensing tax.</p>
+        <p>Enterprises are increasingly constrained by rising proprietary licensing costs—without the option to
+            compromise on security, control, or compliance.
+            <br><br><strong>Hachico</strong> resolves this by deploying <strong>GAJAH Stack</strong> directly into your
+            cloud or on-premises environment, delivering banking-grade security and reliability—without the licensing
+            tax.
+        </p>
         <div class="hero-buttons">
             <a href="mailto:jerome@hachico.my" class="cta-button">Talk to an Architect</a>
             <a href="#stack" class="cta-button cta-button-outline">Explore the Tech</a>
@@ -105,7 +107,8 @@
                 <span class="insight-icon">💸</span>
                 <h3>The "Success Penalty"</h3>
                 <p>Traditional vendors charge per-core. As your application grows and succeeds, your licensing bill
-                    explodes—punishing you for your own growth. Our model charges a flat fee for management, regardless
+                    explodes—punishing you for your own growth. Our model charges a flat fee for management,
+                    regardless
                     of server size.</p>
             </div>
             <div class="insight-card">
@@ -118,7 +121,7 @@
             <div class="insight-card">
                 <span class="insight-icon">⚖️</span>
                 <h3>The Compliance Gap</h3>
-                <p>Open source is free but "unsecured by default." Enterprises need audit trails and encryption. We
+                <p>Open source is free but "unsecured by default". Enterprises need audit trails and encryption. We
                     bridge this gap by deploying a hardened, pre-configured framework that satisfies SOC2, HIPAA, and
                     PCI-DSS immediately.</p>
             </div>
@@ -128,7 +131,7 @@
     <section id="stack" class="container text-center stack-section">
         <div class="container">
             <div class="section-header text-center">
-                <img src="gajahstack.png" class="w-12-pct" alt="The GAJAH Stack Logo">
+                <img src="gajahstack.png" height="150px" alt="The GAJAH Stack Logo">
                 <h2>Introducing The GAJAH Stack</h2>
                 <p class="text-muted">Our proprietary reference architecture for Enterprise PostgreSQL.</p>
             </div>
@@ -147,7 +150,7 @@
                 <div class="gajah-letter">
                     <h3>J</h3>
                     <h4>Journaled</h4>
-                    <p>Immutable audit logs via pgaudit. Tracks every query for strict compliance.</p>
+                    <p>Immutable audit logs via pgAudit. Tracks every query for strict compliance.</p>
                 </div>
                 <div class="gajah-letter">
                     <h3>A</h3>
@@ -196,7 +199,7 @@
                     <h3>Compliance & Logic</h3>
                     <div class="spec-item">
                         <span class="spec-key">Audit Extension</span>
-                        <span class="spec-value">pgaudit (Certified)</span>
+                        <span class="spec-value">pgAudit (Certified)</span>
                     </div>
                     <div class="spec-item">
                         <span class="spec-key">Log Destination</span>
@@ -224,7 +227,7 @@
                     </div>
                     <div class="spec-item">
                         <span class="spec-key">Connection Pooler</span>
-                        <span class="spec-value">PgBouncer (Transaction)</span>
+                        <span class="spec-value">PgBouncer</span>
                     </div>
                     <div class="spec-item">
                         <span class="spec-key">Disaster Recovery</span>
@@ -259,43 +262,44 @@
 
         <div class="faq-container">
             <div class="faq-item">
-                <button class="faq-question">What do you mean by "Bring Your Own Cloud"? <span>+</span></button>
+                <button class="faq-question">What does "Bring Your Own Cloud" mean? <span>+</span></button>
                 <div class="faq-answer">
-                    We do not host your data. We deploy the GAJAH Stack directly into <strong>your</strong> AWS, Azure,
-                    or On-Premise environment. You retain full data sovereignty and pay the cloud provider directly. We
-                    simply maintain a management tunnel to keep the system healthy. This ensures you are never "vendor
-                    locked" to our hosting platform.
+                    We deploy GAJAH Stack directly into <strong>your</strong> AWS, Azure, or on-premises environment—you
+                    retain full data sovereignty and pay your cloud provider directly. Hachico does not host your data;
+                    we maintain a secure management tunnel to keep the system healthy, ensuring no vendor lock-in to our
+                    hosting platform.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">What is our "Exit Strategy"? <span>+</span></button>
+                <button class="faq-question">What is Hachico's "Exit Strategy"? <span>+</span></button>
                 <div class="faq-answer">
-                    This is our strongest differentiator. Since the software is standard Open Source PostgreSQL and the
-                    infrastructure lives in your account, if you terminate our contract, <strong>you keep
-                        everything.</strong> We hand over the encryption keys and administrative credentials. Your
-                    database keeps running. There is zero technical debt in leaving.
+                    This is one of our strongest differentiators. Because we build on standard open source PostgreSQL
+                    and deploy infrastructure directly in your account, you retain complete control if you ever decide
+                    to end our contract. <strong>You keep everything</strong>—we simply hand over encryption keys and
+                    administrative credentials, and your database continues running without interruption. There's no
+                    vendor lock-in, no migration required, and zero technical debt in leaving.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">How does this compare to AWS RDS or Aurora? <span>+</span></button>
+                <button class="faq-question">How does GAJAH Stack compare to AWS RDS and Aurora? <span>+</span></button>
                 <div class="faq-answer">
-                    RDS charges a significant markup on compute and locks you into their ecosystem. The GAJAH Stack runs
-                    on raw EC2/Compute instances, which is often 40-60% cheaper. Furthermore, we provide "Superuser"
-                    extensions and tuning capabilities that RDS blocks for security reasons, giving your engineers more
-                    power.
+                    AWS RDS and Aurora include a managed-service premium and limit low-level database control. The GAJAH
+                    Stack runs directly on raw EC2 or on-premises compute, often reducing infrastructure costs by
+                    40–60%, while giving engineers access to advanced extensions and tuning not available in standard
+                    RDS environments.
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">Who handles "Hit By A Bus" risk? <span>+</span></button>
+                <button class="faq-question">How do you mitigate key-person (or “bus factor”) risk?
+                    <span>+</span></button>
                 <div class="faq-answer">
-                    Relying on a single internal DBA creates a critical point of failure. Hachico removes this risk by
-                    combining a self-healing infrastructure with specialized engineering oversight. We act as your
-                    fractional Database Reliability team, ensuring institutional knowledge is codified in automation
-                    rather than locked in one employee's head—all for significantly less than the cost of a full-time
-                    senior hire.
+                    Relying on a single internal DBA creates a critical point of failure. Hachico mitigates this by
+                    combining self-healing infrastructure with dedicated database engineering oversight. We function as
+                    a fractional Database Reliability team, codifying institutional knowledge into automation and
+                    operational practices—at a fraction of the cost of a full-time senior hire.
                 </div>
             </div>
         </div>

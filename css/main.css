@@ -4,21 +4,17 @@
  */
 
 :root {
-    /* DEFAULT (DARK MODE) COLORS */
     --bg-dark: #050507;
-    /* Legacy variable mapping */
     --bg-color: #050507;
     --text-main: #ffffff;
-    /* Legacy variable mapping */
     --text-color: #ffffff;
     --bg-card: rgba(255, 255, 255, 0.03);
-    --nav-bg: rgba(5, 5, 7, 0.85);
+    --nav-bg: transparent;
 
     --border-color: rgba(255, 255, 255, 0.1);
     --primary: #3b82f6;
     --accent: #06b6d4;
     --accent-color: #3b82f6;
-    /* Alias for user requested snippets */
 
     --text-muted: #9ca3af;
     --success: #10b981;
@@ -94,7 +90,6 @@ h4 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px;
     position: relative;
     z-index: 10;
 }
@@ -104,12 +99,13 @@ h4 {
 }
 
 section {
-    padding: 100px 0;
-    border-bottom: 100px solid rgba(255, 255, 255, 0.02);
+    padding: 100px 24px 24px 24px;
+    border: transparent;
 }
 
 body.light-mode section {
-    border-bottom: 100px transparent;
+    padding: 100px 24px 24px 24px;
+    border: transparent;
 }
 
 nav,
@@ -117,7 +113,7 @@ nav,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 24px 24px;
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
@@ -305,7 +301,6 @@ nav,
 
 
 .hero {
-    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -343,6 +338,10 @@ nav,
     color: var(--accent);
     border: 1px solid rgba(6, 182, 212, 0.2);
     font-family: 'JetBrains Mono', monospace;
+}
+
+body.light-mode .hero {
+    padding-top: 60px;
 }
 
 body.light-mode .badge {
@@ -396,7 +395,8 @@ body.light-mode .badge {
 }
 
 .stack-section {
-    background: rgba(255, 255, 255, 0.02);
+    background: transparent;
+
 }
 
 body.light-mode .stack-section {
@@ -552,7 +552,7 @@ body.light-mode .stack-section {
 
 footer {
     background-color: var(--bg-dark);
-    padding: 80px 0 40px;
+    padding: 80px 24px 40px;
     border-top: 1px solid var(--border-color);
     margin-top: 0;
     font-size: 0.95rem;
@@ -619,7 +619,6 @@ body.light-mode footer {
 
 .footer-bottom {
     padding-top: 0;
-    border-top: 1px solid var(--border-color);
     text-align: center;
     color: var(--text-muted);
     font-size: 0.85rem;
