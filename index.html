@@ -1,3 +1,441 @@
----
-layout: front
----
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hachico | Software, Content & Consultancy</title>
+    <meta name="description" content="At Hachico, we bridge technical mastery with creative insight. Software Development, IT Consultancy, and Strategic Copywriting.">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H51X77RR2"></script>
+    <script>
+      window.dataLayer = window.dataLayer ||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5H51X77RR2');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FDC128",
+                        "secondary": "#F879E0",
+                        "background": "#0e0e0e",
+                        "surface": "#131313",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#adaaaa",
+                        "outline-variant": "#2a2a2a",
+                        "surface-container-high": "#1c1c1c",
+                        "surface-container-low": "#0f0f0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .cta-primary {
+            background-color: #FDC128;
+            color: #000000;
+        }
+        .cta-secondary {
+            border: 1px solid #F879E0;
+            color: #F879E0;
+        }
+        .insight-rail {
+            width: 2px;
+            background-color: #FDC128;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(253, 193, 40, 0.3);
+        }
+        /* Custom form autofill styling for dark mode */
+        input:-webkit-autofill,
+        textarea:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 30px #131313 inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-black">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 glass-header border-b border-white/5 transition-all">
+        <nav class="flex justify-between items-center px-6 md:px-10 py-6 w-full max-w-[1920px] mx-auto relative">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div
+                        class="h-8 w-8 rounded-[22%] border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] overflow-hidden flex-shrink-0 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(253,193,40,0.4)] group-hover:border-primary/50">
+                        <svg class="w-full h-full block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                            aria-label="Hachico Logo">
+                            <title>Hachico Logo</title>
+                            <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
+                            <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+                            <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
+                            <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
+                            <circle cx="24" cy="70" r="3.5" fill="#000000" />
+                            <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
+                        </svg>
+                    </div>
+                    <div
+                        class="text-2xl font-black tracking-tighter text-white uppercase font-headline transition-colors duration-500 group-hover:text-primary">
+                        HACHICO
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-10">
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#philosophy">Philosophy</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#founders">The Founders</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#services">Our Arsenal</a>
+                <a class="text-secondary border-b-2 border-secondary pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="/gajah">GAJAH Stack</a>
+            </div>
+            
+            <a href="#contact"
+                class="hidden md:block bg-[#FDC128] text-black px-6 py-2.5 rounded-sm font-bold text-[12px] uppercase tracking-wider hover:opacity-90 scale-95 active:scale-90 transition-transform">
+                Start a Conversation
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-primary transition-colors focus:outline-none flex items-center justify-center p-2">
+                <span class="material-symbols-outlined text-3xl transition-transform" id="menu-icon">menu</span>
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation Overlay -->
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-[#0e0e0e]/95 backdrop-blur-xl border-b border-white/5 flex-col items-center py-10 space-y-8 hidden md:hidden shadow-2xl">
+            <a href="#philosophy" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Philosophy</a>
+            <a href="#founders" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">The Founders</a>
+            <a href="#services" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Our Arsenal</a>
+            <a href="/gajah" class="mobile-link text-secondary text-lg font-bold uppercase tracking-widest hover:text-white transition-colors">GAJAH Stack</a>
+            <a href="#contact" class="mobile-link bg-primary text-black px-8 py-3 rounded-sm font-bold text-sm uppercase tracking-wider mt-4 shadow-[0_0_20px_rgba(253,193,40,0.2)]">Start a Conversation</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-12 pt-20">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-30 grayscale contrast-125"
+                    alt="High-tech digital environment"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Gd7XGxovNHmHt2tt2mzhIevwyKiK2IZShSfXY18fmNqnc6bxd_drsTClVH_gwAzC6ljnl7nHnLPwVItrbZzkbuZfeiIeaGSC-XYWCilmD5UoEDeab-ZIP0NroZtiJ8rcZA8NuffYyzhw3U0j7QEzngyTMkwaDfNDHtsbe9MrSbVd0jXoeZJA6ctsFjfrDxgi2vbNzU312n17fcbrfc0Dn21txLndLikdDIDENgG_AjAqd-gqwp6-MGoGcizJhL6DX3GBxScHK8s" />
+                <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+            </div>
+            <div class="relative z-10 max-w-[1400px] w-full mt-10 md:mt-0">
+                <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+                    <div class="insight-rail hidden lg:block h-64 mt-6"></div>
+                    <div class="flex-1">
+                        <span class="font-label text-secondary tracking-[0.4em] uppercase text-xs mb-6 block font-bold text-center lg:text-left">Limitless Potential</span>
+                        <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-on-surface text-center lg:text-left">
+                            We Architect <span class="text-primary text-glow">Possibility.</span> <br />
+                            We Curate <span class="text-white">Clarity.</span>
+                        </h1>
+                        <p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+                            A great idea means nothing without the infrastructure to support it and the narrative to sell it. 
+                            We bridge technical mastery with creative insight to deliver solutions that resonate and results that matter.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                            <a href="#contact"
+                                class="inline-flex justify-center items-center cta-primary px-12 py-5 rounded-sm font-black text-sm tracking-[0.1em] uppercase transition-all hover:scale-[1.05] active:scale-95 shadow-[0_0_30px_rgba(253,193,40,0.2)]">
+                                Initiate Project
+                            </a>
+                            <a href="#services"
+                                class="inline-flex justify-center items-center cta-secondary border-2 px-12 py-5 rounded-sm font-black text-sm tracking-[0.1em] uppercase hover:bg-secondary/5 transition-all">
+                                Explore Our Expertise
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Philosophy (About Us) Section -->
+        <section id="philosophy" class="py-32 px-6 lg:px-12 bg-surface-container-low border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2">
+                    <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Hachico Ethos</span>
+                    <h2 class="font-headline text-4xl md:text-6xl font-black tracking-tighter text-on-surface mb-8">
+                        Eight Arms.<br>One Vision.
+                    </h2>
+                    <p class="font-body text-on-surface-variant text-lg mb-6 leading-relaxed">
+                        In Japanese, "Hachi" means eight. Inspired by the octopus, our name reflects eight tentacles—a symbol of supreme versatility, adaptability, and multi-disciplinary expertise.
+                    </p>
+                    <p class="font-body text-on-surface-variant text-lg leading-relaxed">
+                        But "Hachiko" is also the middle name of our feisty, ever-curious dog. We approach every challenge with that exact same boundlessness—a relentless thirst for discovery, simplifying complexity, and amplifying ideas. We don't just look at the big picture; we master the details.
+                    </p>
+                </div>
+                <!-- Core Values (Why Us) -->
+                <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="bg-surface p-8 border border-white/5 rounded-sm">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="my_location">my_location</span>
+                        <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Precision</h4>
+                        <p class="text-on-surface-variant text-sm">We deliver solutions with meticulous attention to detail and an absolute focus on excellence.</p>
+                    </div>
+                    <div class="bg-surface p-8 border border-white/5 rounded-sm">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="handshake">handshake</span>
+                        <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Collaboration</h4>
+                        <p class="text-on-surface-variant text-sm">We don't work for you; we work with you. Ensuring every deployment aligns seamlessly with your goals.</p>
+                    </div>
+                    <div class="bg-surface p-8 border border-white/5 rounded-sm sm:col-span-2">
+                        <span class="material-symbols-outlined text-white text-4xl mb-4" data-icon="all_inclusive">all_inclusive</span>
+                        <h4 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Versatility</h4>
+                        <p class="text-on-surface-variant text-sm">Drawing on diverse expertise, we adapt to your unique challenges, pivoting seamlessly as your industry evolves.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founders Section -->
+        <section id="founders" class="py-32 px-6 lg:px-12 bg-background border-y border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto text-center mb-20">
+                <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Brain Trust</span>
+                <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter text-on-surface max-w-3xl mx-auto">
+                    A foundation built on two distinct, perfectly aligned strengths.
+                </h2>
+            </div>
+            <div class="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Founder 1 -->
+                <div class="relative p-10 border border-white/10 rounded-sm bg-gradient-to-br from-surface to-background overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-8xl text-primary" data-icon="architecture">architecture</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-2">The Architect</h3>
+                    <h4 class="text-primary font-bold tracking-widest text-xs uppercase mb-6">Of Possibility</h4>
+                    <p class="text-on-surface-variant leading-relaxed relative z-10">
+                        A problem-solver at heart. We tackle challenges with clarity and creativity, transforming obstacles into infrastructure. Whether it’s streamlining internal systems or architecting robust software from the ground up, our innovative approach ensures impactful, flawless outcomes.
+                    </p>
+                </div>
+                <!-- Founder 2 -->
+                <div class="relative p-10 border border-white/10 rounded-sm bg-gradient-to-bl from-surface to-background overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-8xl text-secondary" data-icon="history_edu">history_edu</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-2">The Curator</h3>
+                    <h4 class="text-secondary font-bold tracking-widest text-xs uppercase mb-6">Of Clarity</h4>
+                    <p class="text-on-surface-variant leading-relaxed relative z-10">
+                        Every great idea needs the right words to survive. We craft compelling narratives and crisp messaging that inspire action. With an unwavering commitment to precision, we ensure every piece of communication aligns with your vision, cutting through the noise to command attention.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-32 px-6 lg:px-12 bg-surface-container-low pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-12">
+                    <div class="max-w-xl">
+                        <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">Our Capabilities</span>
+                        <h2 class="font-headline text-4xl md:text-6xl font-black tracking-tighter text-on-surface">
+                            The Arsenal.
+                        </h2>
+                    </div>
+                    <p class="font-body text-on-surface-variant text-lg max-w-md border-l-2 border-secondary pl-6">
+                        Our capabilities are as versatile as the challenges we tackle. As industries evolve, so will we—expanding our expertise to keep you ahead.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Service 1 -->
+                    <div class="group bg-surface p-12 rounded-sm border border-white/5 hover:border-primary/30 transition-all duration-500 flex flex-col h-full relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-500"></div>
+                        <div class="mb-10">
+                            <span class="material-symbols-outlined text-primary text-5xl" data-icon="terminal">terminal</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-black mb-6 text-on-surface uppercase tracking-tight">Software Development</h3>
+                        <p class="font-body text-on-surface-variant leading-relaxed flex-grow">
+                            Delivering innovative, scalable solutions tailored to real-world challenges. We build the architecture that helps businesses enhance efficiency and streamline operations effortlessly.
+                        </p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="group bg-surface p-12 rounded-sm border border-white/5 hover:border-secondary/30 transition-all duration-500 flex flex-col h-full relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-secondary group-hover:h-full transition-all duration-500"></div>
+                        <div class="mb-10">
+                            <span class="material-symbols-outlined text-secondary text-5xl" data-icon="memory">memory</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-black mb-6 text-on-surface uppercase tracking-tight">IT Consultancy</h3>
+                        <p class="font-body text-on-surface-variant leading-relaxed flex-grow">
+                            Providing actionable insights and elite technical expertise. We audit, strategize, and optimize your IT infrastructure to turn technological liabilities into competitive assets.
+                        </p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="group bg-surface p-12 rounded-sm border border-white/5 hover:border-white/20 transition-all duration-500 flex flex-col h-full relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-0 bg-white group-hover:h-full transition-all duration-500"></div>
+                        <div class="mb-10">
+                            <span class="material-symbols-outlined text-white text-5xl" data-icon="ink_pen">ink_pen</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-black mb-6 text-on-surface uppercase tracking-tight">Copywriting Services</h3>
+                        <p class="font-body text-on-surface-variant leading-relaxed flex-grow">
+                            Creating impactful messaging that connects with audiences. We forge narratives that strengthen your brand identity and ensure your market voice is impossible to ignore.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 px-6 lg:px-12 bg-background border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto bg-surface border border-white/5 rounded-sm overflow-hidden flex flex-col lg:flex-row items-stretch">
+                <!-- Contact Info -->
+                <div class="lg:w-[45%] p-12 lg:p-20 flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-primary/5 mix-blend-overlay z-0"></div>
+                    <div class="relative z-10">
+                        <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">Next Steps</span>
+                        <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter mb-8 text-on-surface leading-none uppercase">
+                            Let's Build <br /><span class="text-secondary">Possibility.</span>
+                        </h2>
+                        <p class="font-body text-on-surface-variant text-lg mb-8 leading-relaxed">
+                            Whether you need innovative software, strategic IT consultation, or crafted communication that speaks volumes, the next move is yours.
+                        </p>
+                        <p class="font-body font-bold text-white text-xl mb-12">
+                            Eight legs mean limitless potential.<br>Reach out today.
+                        </p>
+                        <div class="flex items-center gap-4 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            <a href="mailto:hachico@hachico.my" class="hover:text-primary transition-colors font-bold tracking-wider break-all">hachico@hachico.my</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form (Directly integrated with your Formspree) -->
+                <div class="lg:w-[55%] p-12 lg:p-20 bg-[#0e0e0e] border-t lg:border-t-0 lg:border-l border-white/5 relative z-10">
+                    <form id="contactForm" action="https://formspree.io/f/xkggpbqk" method="POST" class="flex flex-col gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2">
+                                <label for="name" class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Your Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                    class="bg-surface border border-white/10 p-4 text-white rounded-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-full">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label for="email" class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Your Email *</label>
+                                <input type="email" id="email" name="_replyto" required 
+                                    class="bg-surface border border-white/10 p-4 text-white rounded-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-full">
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <label for="phone" class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Your Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone" 
+                                class="bg-surface border border-white/10 p-4 text-white rounded-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-full">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="message" class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Your Message *</label>
+                            <textarea id="message" name="message" required rows="5"
+                                class="bg-surface border border-white/10 p-4 text-white rounded-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all w-full resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                            class="bg-primary text-black mt-4 px-8 py-5 rounded-sm font-black text-sm tracking-[0.2em] uppercase transition-all hover:bg-white active:scale-95 text-center w-full md:w-auto self-start">
+                            Send Transmission
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full border-t border-white/5 py-12 md:py-20">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-12 md:space-y-0 w-full mb-16">
+                <div class="flex flex-col gap-4">
+                    <div class="text-xl font-bold text-white font-headline uppercase tracking-tighter">HACHICO</div>
+                    <p class="text-[#adaaaa] font-body text-sm max-w-xs leading-relaxed">
+                        When you work with us, you’re not just hiring expertise—you’re gaining a partner invested in your
+                        success. Limitless potential awaits.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-x-12 gap-y-6">
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#philosophy">Philosophy</a>
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#founders">Founders</a>
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#services">Arsenal</a>
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="/gajah">GAJAH Stack</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <span class="font-body text-sm text-[#adaaaa] text-center md:text-left">
+                    &copy; 2026 Hachico.my. All Rights Reserved.
+                </span>
+                <div class="flex gap-6 items-center">
+                    <a href="/privacy.html"
+                        class="text-[#adaaaa] hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest">Privacy</a>
+                    <a href="/terms.html"
+                        class="text-[#adaaaa] hover:text-secondary transition-colors text-xs font-bold uppercase tracking-widest">Terms</a>
+                    <span class="w-px h-4 bg-white/20 mx-2"></span>
+                    <a href="mailto:hachico@hachico.my"
+                        class="material-symbols-outlined text-[#adaaaa] hover:text-white transition-colors cursor-pointer"
+                        data-icon="mail">mail</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const links = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                if (menu.classList.contains('hidden')) {
+                    // Open menu
+                    menu.classList.remove('hidden');
+                    menu.classList.add('flex');
+                    icon.textContent = 'close';
+                } else {
+                    // Close menu
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                    icon.textContent = 'menu';
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            links.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+</body>
+</html>
