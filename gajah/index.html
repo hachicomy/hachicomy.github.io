@@ -1,373 +1,569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark scroll-smooth" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hachico | The GAJAH Stack</title>
-    <meta name="description"
-        content="Bank-Grade Open Source Data Infrastructure. Escape the licensing trap with the GAJAH Stack.">
-    <meta name="robots" content="index, follow">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The GAJAH Stack | Absolute Data Sovereignty by Hachico</title>
+    <meta name="description" content="Bring Your Own Cloud (BYOC) Infrastructure as Code. Enterprise PostgreSQL without the proprietary licensing trap.">
     <link rel="canonical" href="https://www.hachico.my/gajah/">
-
-    <!-- Open Graph / Facebook -->
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.hachico.my/gajah/">
-    <meta property="og:title" content="hachico | The GAJAH Stack">
+    <meta property="og:title" content="The GAJAH Stack | Absolute Data Sovereignty by Hachico">
     <meta property="og:description"
-        content="Bank-Grade Open Source Data Infrastructure. Escape the licensing trap with the GAJAH Stack.">
+        content="Bring Your Own Cloud. Reclaim your data with The GAJAH Stack: bank-grade, self-healing PostgreSQL infrastructure without the proprietary licensing trap.">
     <meta property="og:image" content="https://www.hachico.my/gajah/gajahstack.png">
-
-    <!-- Twitter -->
+    
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="hachico.my">
     <meta name="twitter:url" content="https://www.hachico.my/gajah/">
-    <meta name="twitter:title" content="hachico | The GAJAH Stack">
+    <meta name="twitter:title" content="The GAJAH Stack | Absolute Data Sovereignty by Hachico">
     <meta name="twitter:description"
-        content="Bank-Grade Open Source Data Infrastructure. Escape the licensing trap with the GAJAH Stack.">
+        content="Bring Your Own Cloud. Reclaim your data with The GAJAH Stack: bank-grade, self-healing PostgreSQL infrastructure without the proprietary licensing trap.">
     <meta name="twitter:image" content="https://www.hachico.my/gajah/gajahstack.png">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H51X77RR2"></script>
+    <script>
+      window.dataLayer = window.dataLayer ||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5H51X77RR2');
+    </script>
 
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FDC128",
+                        "secondary": "#F879E0",
+                        "background": "#0e0e0e",
+                        "surface": "#131313",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#adaaaa",
+                        "outline-variant": "#2a2a2a",
+                        "surface-container-high": "#1c1c1c",
+                        "surface-container-low": "#0f0f0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .cta-primary {
+            background-color: #FDC128;
+            color: #000000;
+        }
+        .cta-secondary {
+            border: 1px solid #F879E0;
+            color: #F879E0;
+        }
+        .insight-rail {
+            width: 2px;
+            background-color: #FDC128;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(253, 193, 40, 0.3);
+        }
+        .text-glow-secondary {
+            text-shadow: 0 0 20px rgba(248, 121, 224, 0.3);
+        }
+        .vertical-line-stack {
+            position: absolute;
+            left: 2.5rem;
+            top: 2rem;
+            bottom: 2rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #FDC128 0%, #F879E0 100%);
+            z-index: 0;
+            opacity: 0.3;
+        }
+        @media (max-width: 768px) {
+            .vertical-line-stack { left: 1.5rem; }
+        }
+    </style>
 </head>
 
-<body>
-    <div id="canvas-container">
-        <canvas id="canvas"></canvas>
-    </div>
-
-    <div class="container nav-container">
-        <nav class="navbar">
-            <a href="../index.html" class="logo">
-                <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Hachico Logo">
-                    <title>Hachico Logo</title>
-                    <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
-                    <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
-                    <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
-                    <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
-                    <circle cx="24" cy="70" r="3.5" fill="#000000" />
-                    <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
-                </svg>
-                <span class="logo-text">hachico</span>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-black">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 glass-header border-b border-white/5 transition-all">
+        <nav class="flex justify-between items-center px-6 md:px-10 py-6 w-full max-w-[1920px] mx-auto relative">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
+                <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div
+                        class="h-8 w-8 rounded-[22%] border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] overflow-hidden flex-shrink-0 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(253,193,40,0.4)] group-hover:border-primary/50">
+                        <!-- Exact Original SVG (Unchanged) -->
+                        <svg class="w-full h-full block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                            aria-label="Hachico Logo">
+                            <title>Hachico Logo</title>
+                            <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
+                            <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+                            <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
+                            <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
+                            <circle cx="24" cy="70" r="3.5" fill="#000000" />
+                            <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
+                        </svg>
+                    </div>
+                    <div
+                        class="text-2xl font-black tracking-tighter text-white uppercase font-headline transition-colors duration-500 group-hover:text-primary">
+                        HACHICO
+                    </div>
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-white/20 mx-2"></div>
+                <div class="hidden sm:block text-xs font-bold tracking-[0.3em] uppercase text-secondary">GAJAH STACK</div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-10">
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#dilemma">The Dilemma</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#stack">The Architecture</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#specs">Tech Specs</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#intel">Strategic Intel</a>
+            </div>
+            
+            <a href="#consultation"
+                class="hidden md:block bg-[#FDC128] text-black px-6 py-2.5 rounded-sm font-bold text-[12px] uppercase tracking-wider hover:opacity-90 scale-95 active:scale-90 transition-transform">
+                Talk to an Architect
             </a>
 
-            <button class="mobile-menu-btn" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-primary transition-colors focus:outline-none flex items-center justify-center p-2">
+                <span class="material-symbols-outlined text-3xl transition-transform" id="menu-icon">menu</span>
             </button>
-
-            <ul class="nav-links">
-                <li><a href="#challenge">The Challenge</a></li>
-                <li><a href="#stack">The GAJAH Stack</a></li>
-                <li><a href="#faq">Strategic FAQ</a></li>
-                <li>
-                    <button id="theme-toggle" class="theme-toggle">☀ Light Mode</button>
-                </li>
-            </ul>
-            <a href="mailto:jerome@hachico.my" class="cta-button">Request Consultation</a>
         </nav>
-    </div>
 
-    <section class="container hero">
-        <div class="hero-badges">
-            <span class="badge">Bring Your Own Cloud (BYOC)</span>
-            <span class="badge">Infrastructure as Code</span>
-            <span class="badge">100% Open Source</span>
+        <!-- Mobile Navigation Overlay -->
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-[#0e0e0e]/95 backdrop-blur-xl border-b border-white/5 flex-col items-center py-10 space-y-8 hidden md:hidden shadow-2xl">
+            <a href="#dilemma" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">The Dilemma</a>
+            <a href="#stack" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">The Architecture</a>
+            <a href="#specs" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Tech Specs</a>
+            <a href="#intel" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Strategic Intel</a>
+            <a href="/" class="mobile-link text-secondary text-sm font-bold uppercase tracking-widest hover:text-white transition-colors mt-4">← Return to Main Site</a>
         </div>
-        <h1>Your Data. Your Infrastructure.<br><span class="gradient-text">Absolute Sovereignty.</span></h1>
-        <p>Enterprises are increasingly constrained by rising proprietary licensing costs—without the option to
-            compromise on security, control, or compliance.
-            <br><br><strong>Hachico</strong> resolves this by deploying <strong>GAJAH Stack</strong> directly into your
-            cloud or on-premises environment, delivering banking-grade security and reliability—without the licensing
-            tax.
-        </p>
-        <div class="hero-buttons">
-            <a href="mailto:jerome@hachico.my" class="cta-button">Talk to an Architect</a>
-            <a href="#stack" class="cta-button">Explore the Tech</a>
-        </div>
-    </section>
+    </header>
 
-    <section id="challenge" class="container">
-        <div class="section-header text-center mb-60">
-            <h2>The Executive Dilemma</h2>
-            <p class="text-muted">Why modern enterprises are fleeing proprietary database vendors.</p>
-        </div>
-
-        <div class="insights-grid">
-            <div class="insight-card">
-                <span class="insight-icon">💸</span>
-                <h3>The "Success Penalty"</h3>
-                <p>Traditional vendors charge per-core. As your application grows and succeeds, your licensing bill
-                    explodes—punishing you for your own growth. Our model charges a flat fee for management,
-                    regardless
-                    of server size.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-12 pt-20">
+            <div class="absolute inset-0 z-0">
+                <!-- Horizontally flipped and hue-adjusted main image for continuity but distinction -->
+                <img class="w-full h-full object-cover opacity-20 grayscale contrast-150 scale-x-[-1]"
+                    alt="Abstract data architecture"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Gd7XGxovNHmHt2tt2mzhIevwyKiK2IZShSfXY18fmNqnc6bxd_drsTClVH_gwAzC6ljnl7nHnLPwVItrbZzkbuZfeiIeaGSC-XYWCilmD5UoEDeab-ZIP0NroZtiJ8rcZA8NuffYyzhw3U0j7QEzngyTMkwaDfNDHtsbe9MrSbVd0jXoeZJA6ctsFjfrDxgi2vbNzU312n17fcbrfc0Dn21txLndLikdDIDENgG_AjAqd-gqwp6-MGoGcizJhL6DX3GBxScHK8s" />
+                <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
             </div>
-            <div class="insight-card">
-                <span class="insight-icon">📦</span>
-                <h3>The "Black Box" Risk</h3>
-                <p>Managed cloud databases (PaaS) hide the infrastructure from your team. When an incident occurs, you
-                    are locked out of the root level. With Hachico, you own the infrastructure and retain full root
-                    access.</p>
-            </div>
-            <div class="insight-card">
-                <span class="insight-icon">⚖️</span>
-                <h3>The Compliance Gap</h3>
-                <p>Open source is free but "unsecured by default". Enterprises need audit trails and encryption. We
-                    bridge this gap by deploying a hardened, pre-configured framework that satisfies SOC2, HIPAA, and
-                    PCI-DSS immediately.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="stack" class="container text-center stack-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <img src="gajahstack.png" height="150px" alt="The GAJAH Stack Logo">
-                <h2>Introducing The GAJAH Stack</h2>
-                <p class="text-muted">Our proprietary reference architecture for Enterprise PostgreSQL.</p>
-            </div>
-
-            <div class="gajah-container">
-                <div class="gajah-letter">
-                    <h3>G</h3>
-                    <h4>Guarded</h4>
-                    <p>Infrastructure-level Encryption at Rest (LUKS2). Data is physically unreadable without keys.</p>
-                </div>
-                <div class="gajah-letter">
-                    <h3>A</h3>
-                    <h4>Automated</h4>
-                    <p>Deployed via immutable Infrastructure-as-Code (Ansible). No manual configuration drift.</p>
-                </div>
-                <div class="gajah-letter">
-                    <h3>J</h3>
-                    <h4>Journaled</h4>
-                    <p>Immutable audit logs via pgAudit. Tracks every query for strict compliance.</p>
-                </div>
-                <div class="gajah-letter">
-                    <h3>A</h3>
-                    <h4>Available</h4>
-                    <p>Self-healing cluster with Distributed Consensus. Automatic failover in < 30s.</p>
-                </div>
-                <div class="gajah-letter">
-                    <h3>H</h3>
-                    <h4>Hardened</h4>
-                    <p>OS-level tuning (CIS Benchmarks), kernel watchdogs, and connection pooling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="specs" class="container">
-        <div class="section-header text-center">
-            <h2>Technical Specifications</h2>
-            <p class="text-muted">Audit-ready infrastructure standards.</p>
-        </div>
-
-        <div class="specs-container">
-            <div class="specs-grid">
-
-                <div class="spec-category">
-                    <h3>Data Security</h3>
-                    <div class="spec-item">
-                        <span class="spec-key">Encryption at Rest</span>
-                        <span class="spec-value">LUKS2 (AES-256)</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Transport Layer</span>
-                        <span class="spec-value">TLS 1.3 Forced</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Auth Mechanism</span>
-                        <span class="spec-value">SCRAM-SHA-256</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Network Policy</span>
-                        <span class="spec-value">Host-Based (Firewalld)</span>
+            <div class="relative z-10 max-w-[1400px] w-full mt-10 md:mt-0">
+                <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+                    <div class="insight-rail hidden lg:block h-64 mt-6"></div>
+                    <div class="flex-1">
+                        <span class="font-label text-secondary tracking-[0.4em] uppercase text-xs mb-6 block font-bold text-center lg:text-left">Bring Your Own Cloud (BYOC) • 100% Open Source</span>
+                        <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-on-surface text-center lg:text-left">
+                            Your Data.<br>Your Infrastructure.<br>
+                            <span class="text-primary text-glow">Absolute Sovereignty.</span>
+                        </h1>
+                        <p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+                            The modern enterprise is held hostage by its own growth. We end the extortion. 
+                            The GAJAH Stack deploys banking-grade, self-healing PostgreSQL directly into your environment—without the proprietary licensing tax.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                            <a href="#consultation"
+                                class="inline-flex justify-center items-center cta-primary px-12 py-5 rounded-sm font-black text-sm tracking-[0.1em] uppercase transition-all hover:scale-[1.05] active:scale-95 shadow-[0_0_30px_rgba(253,193,40,0.2)]">
+                                Reclaim Your Data
+                            </a>
+                            <a href="#stack"
+                                class="inline-flex justify-center items-center cta-secondary border-2 px-12 py-5 rounded-sm font-black text-sm tracking-[0.1em] uppercase hover:bg-secondary/5 transition-all">
+                                Inspect the Stack
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="spec-category">
-                    <h3>Compliance & Logic</h3>
-                    <div class="spec-item">
-                        <span class="spec-key">Audit Extension</span>
-                        <span class="spec-value">pgAudit (Certified)</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Log Destination</span>
-                        <span class="spec-value">Immutable System Logs</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Split-Brain Safety</span>
-                        <span class="spec-value">Softdog Watchdog</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Quorum Protocol</span>
-                        <span class="spec-value">Raft (Etcd v3)</span>
-                    </div>
-                </div>
-
-                <div class="spec-category">
-                    <h3>Architecture</h3>
-                    <div class="spec-item">
-                        <span class="spec-key">OS Baseline</span>
-                        <span class="spec-value">AlmaLinux 9 / RHEL 9</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Core Engine</span>
-                        <span class="spec-value">PostgreSQL 17</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Connection Pooler</span>
-                        <span class="spec-value">PgBouncer</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-key">Disaster Recovery</span>
-                        <span class="spec-value">pgBackRest (S3/Azure)</span>
-                    </div>
-                </div>
-
             </div>
-        </div>
+        </section>
 
-        <div class="badges-container">
-            <div class="badge-item">
-                <div class="badge-title">SOC 2 Type II</div>
-                <div class="badge-desc">Ready Architecture</div>
-            </div>
-            <div class="badge-item">
-                <div class="badge-title">HIPAA</div>
-                <div class="badge-desc">Security Rule Compliant</div>
-            </div>
-            <div class="badge-item">
-                <div class="badge-title">PCI-DSS</div>
-                <div class="badge-desc">Req 3.4 (Storage) Met</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="container">
-        <div class="section-header text-center">
-            <h2>Strategic Considerations</h2>
-            <p class="text-muted">Common questions from the CIO and Risk Committee.</p>
-        </div>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question">What does "Bring Your Own Cloud" mean? <span>+</span></button>
-                <div class="faq-answer">
-                    We deploy GAJAH Stack directly into <strong>your</strong> AWS, Azure, or on-premises environment—you
-                    retain full data sovereignty and pay your cloud provider directly. Hachico does not host your data;
-                    we maintain a secure management tunnel to keep the system healthy, ensuring no vendor lock-in to our
-                    hosting platform.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">What is Hachico's "Exit Strategy"? <span>+</span></button>
-                <div class="faq-answer">
-                    This is one of our strongest differentiators. Because we build on standard open source PostgreSQL
-                    and deploy infrastructure directly in your account, you retain complete control if you ever decide
-                    to end our contract. <strong>You keep everything</strong>—we simply hand over encryption keys and
-                    administrative credentials, and your database continues running without interruption. There's no
-                    vendor lock-in, no migration required, and zero technical debt in leaving.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">How does GAJAH Stack compare to AWS RDS and Aurora? <span>+</span></button>
-                <div class="faq-answer">
-                    AWS RDS and Aurora include a managed-service premium and limit low-level database control. The GAJAH
-                    Stack runs directly on raw EC2 or on-premises compute, often reducing infrastructure costs by
-                    40–60%, while giving engineers access to advanced extensions and tuning not available in standard
-                    RDS environments.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">How do you mitigate key-person (or “bus factor”) risk?
-                    <span>+</span></button>
-                <div class="faq-answer">
-                    Relying on a single internal DBA creates a critical point of failure. Hachico mitigates this by
-                    combining self-healing infrastructure with dedicated database engineering oversight. We function as
-                    a fractional Database Reliability team, codifying institutional knowledge into automation and
-                    operational practices—at a fraction of the cost of a full-time senior hire.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>
-                        GAJAH Stack<img src="gajahstack.png" class="w-12-pct" alt="GAJAH Stack Logo">
-                    </h3>
-                    <p>
-                        Enterprise PostgreSQL without the licensing trap.
-                        <br><br>
-                        <strong>Developed by Hachico.</strong><br>
-                        Guarding data sovereignty for modern enterprises.
+        <!-- The Dilemma Section -->
+        <section id="dilemma" class="py-32 px-6 lg:px-12 bg-surface-container-low border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-20 text-center max-w-3xl mx-auto">
+                    <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Executive Dilemma</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter text-on-surface mb-6">
+                        Why modern enterprises are fleeing proprietary database vendors.
+                    </h2>
+                    <p class="font-body text-on-surface-variant text-lg">
+                        Licensing isn't a cost; it's a trap. As your platform scales, legacy architectures transform your success into a financial liability.
                     </p>
                 </div>
-
-                <div class="footer-links">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#stack">GAJAH Stack</a></li>
-                        <li><a href="#specs">Security & Specs</a></li>
-                        <li><a href="#challenge">Why Move?</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="https://www.hachico.my" target="_blank" rel="noopener noreferrer">About Hachico</a>
-                        </li>
-                        <li><a href="mailto:jerome@hachico.my">Contact Leadership</a></li>
-                        <li><a href="../privacy.html">Privacy Policy</a></li>
-                        <li><a href="../terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#challenge">The Business Challenge</a></li>
-                        <li><a href="#faq">Strategic FAQ</a></li>
-                        <li>
-                            <a href="mailto:jerome@hachico.my?subject=Request%20GAJAH%20Stack%20Whitepaper&body=Hi%20Jerome%2C%0A%0AI%20would%20like%20to%20request%20access%20to%20the%20technical%20whitepaper%20for%20the%20GAJAH%20Stack.%0A%0APlease%20send%20it%20to%20this%20email."
-                                class="request-link">
-                                Request Whitepaper ➔
-                            </a>
-                        </li>
-                    </ul>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Pain Point 1 -->
+                    <div class="bg-surface p-10 border-t-2 border-primary/50 hover:border-primary transition-colors group">
+                        <div class="mb-6">
+                            <span
+                                class="material-symbols-outlined text-primary text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
+                                data-icon="payments">payments</span>
+                        </div>
+                        <h3 class="font-headline text-xl font-black mb-4 text-white uppercase tracking-tight">The "Success Penalty"</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Traditional vendors charge per-core. As your application grows and succeeds, your licensing bill
+                            explodes—literally punishing you for your own growth. We charge a flat fee for management, regardless of
+                            server size.
+                        </p>
+                    </div>
+                    <!-- Pain Point 2 -->
+                    <div class="bg-surface p-10 border-t-2 border-secondary/50 hover:border-secondary transition-colors group">
+                        <div class="mb-6">
+                            <span
+                                class="material-symbols-outlined text-secondary text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
+                                data-icon="visibility_off">visibility_off</span>
+                        </div>
+                        <h3 class="font-headline text-xl font-black mb-4 text-white uppercase tracking-tight">The "Black Box" Risk</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Managed cloud databases (PaaS) hide the engine room. When a critical incident occurs, you are locked out of
+                            root access. With Hachico, you own the infrastructure and retain complete, unrestricted control.
+                        </p>
+                    </div>
+                    <!-- Pain Point 3 -->
+                    <div class="bg-surface p-10 border-t-2 border-white/30 hover:border-white transition-colors group">
+                        <div class="mb-6">
+                            <span
+                                class="material-symbols-outlined text-white text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
+                                data-icon="policy">policy</span>
+                        </div>
+                        <h3 class="font-headline text-xl font-black mb-4 text-white uppercase tracking-tight">The Compliance Gap</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Open source is free, but it's "unsecured by default." Enterprises need audit trails. We bridge the gap by
+                            deploying a hardened, pre-configured framework that satisfies SOC2, HIPAA, and PCI-DSS on day one.
+                        </p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 hachico.my All rights reserved.</p>
-                <p class="mt-10">
-                    Your data is your most valuable asset. It deserves infrastructure that is guarded, automated, and
-                    strictly yours.
-                </p>
+        <!-- The GAJAH Stack (Acronym) -->
+        <section id="stack" class="py-32 px-6 lg:px-12 bg-background border-y border-white/5 pt-32 -mt-16 relative overflow-hidden">
+            <!-- Background typographic accent -->
+            <div class="absolute right-[-5%] top-[20%] text-[400px] font-black font-headline text-white/[0.02] select-none leading-none z-0">GAJAH</div>
+            
+            <div class="max-w-[1000px] mx-auto relative z-10">
+                <div class="mb-20">
+                    <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">Proprietary Reference Architecture</span>
+                    <h2 class="font-headline text-4xl md:text-6xl font-black tracking-tighter text-on-surface">
+                        The Anatomy of <span class="text-secondary text-glow-secondary">GAJAH.</span>
+                    </h2>
+                </div>
+
+                <div class="relative pl-12 md:pl-20 space-y-16">
+                    <div class="vertical-line-stack"></div>
+                    
+                    <!-- G -->
+                    <div class="relative">
+                        <div class="absolute -left-12 md:-left-20 top-0 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-black text-primary z-10">G</div>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tight mb-2">Guarded</h3>
+                        <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                            <strong class="text-primary font-bold">Infrastructure-level Encryption at Rest (LUKS2).</strong> Data is physically unreadable without keys, ensuring maximum defense against physical and logical breaches.
+                        </p>
+                    </div>
+                    <!-- A -->
+                    <div class="relative">
+                        <div class="absolute -left-12 md:-left-20 top-0 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-black text-primary z-10">A</div>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tight mb-2">Automated</h3>
+                        <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                            <strong class="text-primary font-bold">Immutable Infrastructure-as-Code (Ansible).</strong> Deployed systematically to eliminate manual configuration drift and human error.
+                        </p>
+                    </div>
+                    <!-- J -->
+                    <div class="relative">
+                        <div class="absolute -left-12 md:-left-20 top-0 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-black text-primary z-10">J</div>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tight mb-2">Journaled</h3>
+                        <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                            <strong class="text-primary font-bold">Immutable Audit Logs via pgAudit.</strong> Tracks every query, user action, and system event to satisfy the strictest global compliance frameworks.
+                        </p>
+                    </div>
+                    <!-- A -->
+                    <div class="relative">
+                        <div class="absolute -left-12 md:-left-20 top-0 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-black text-primary z-10">A</div>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tight mb-2">Available</h3>
+                        <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                            <strong class="text-primary font-bold">Self-Healing Cluster with Distributed Consensus.</strong> Automatic failover executed in under 30 seconds via advanced quorum logic.
+                        </p>
+                    </div>
+                    <!-- H -->
+                    <div class="relative">
+                        <div class="absolute -left-12 md:-left-20 top-0 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-black text-primary z-10">H</div>
+                        <h3 class="text-3xl font-black text-white uppercase tracking-tight mb-2">Hardened</h3>
+                        <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                            <strong class="text-primary font-bold">OS-Level Tuning (CIS Benchmarks).</strong> Integrated kernel watchdogs, strict host-based network policies, and optimized connection pooling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specifications Table -->
+        <section id="specs" class="py-32 px-6 lg:px-12 bg-surface-container-low pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-16">
+                    <span class="font-label text-white/50 tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Blueprint</span>
+                    <h2 class="font-headline text-3xl md:text-4xl font-black tracking-tighter text-white uppercase">
+                        Audit-Ready Specifications.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Column 1 -->
+                    <div class="border border-white/10 rounded-sm bg-surface overflow-hidden">
+                        <div class="bg-[#1a1a1a] p-4 border-b border-white/10">
+                            <h4 class="text-primary font-bold uppercase tracking-widest text-sm">Data Security</h4>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Encryption at Rest</span>
+                                <span class="text-white font-bold text-sm">LUKS2 (AES-256)</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Transport Layer</span>
+                                <span class="text-white font-bold text-sm">TLS 1.3 Forced</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Auth Mechanism</span>
+                                <span class="text-white font-bold text-sm">SCRAM-SHA-256</span>
+                            </div>
+                            <div class="flex justify-between items-end pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Network Policy</span>
+                                <span class="text-white font-bold text-sm">Host-Based (Firewalld)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="border border-white/10 rounded-sm bg-surface overflow-hidden">
+                        <div class="bg-[#1a1a1a] p-4 border-b border-white/10">
+                            <h4 class="text-secondary font-bold uppercase tracking-widest text-sm">Compliance & Logic</h4>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Audit Extension</span>
+                                <span class="text-white font-bold text-sm">pgAudit (Certified)</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Log Destination</span>
+                                <span class="text-white font-bold text-sm">Immutable SysLogs</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Split-Brain Safety</span>
+                                <span class="text-white font-bold text-sm">Softdog Watchdog</span>
+                            </div>
+                            <div class="flex justify-between items-end pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Quorum Protocol</span>
+                                <span class="text-white font-bold text-sm">Raft (Etcd v3)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="border border-white/10 rounded-sm bg-surface overflow-hidden">
+                        <div class="bg-[#1a1a1a] p-4 border-b border-white/10">
+                            <h4 class="text-white font-bold uppercase tracking-widest text-sm">Architecture</h4>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">OS Baseline</span>
+                                <span class="text-white font-bold text-sm">AlmaLinux 9 / RHEL 9</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Core Engine</span>
+                                <span class="text-white font-bold text-sm">PostgreSQL 17</span>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Connection Pooler</span>
+                                <span class="text-white font-bold text-sm">PgBouncer</span>
+                            </div>
+                            <div class="flex justify-between items-end pb-2">
+                                <span class="text-on-surface-variant text-xs uppercase tracking-wider">Disaster Recovery</span>
+                                <span class="text-white font-bold text-sm">pgBackRest (S3/Azure)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Badges -->
+                <div class="mt-12 flex flex-wrap gap-4 justify-center md:justify-start">
+                    <span class="border border-white/20 text-white/50 text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm">SOC 2 Type II Ready Architecture</span>
+                    <span class="border border-white/20 text-white/50 text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm">HIPAA Security Rule Compliant</span>
+                    <span class="border border-white/20 text-white/50 text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm">PCI-DSS Req 3.4 Met</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Intel (FAQ) -->
+        <section id="intel" class="py-32 px-6 lg:px-12 bg-background border-y border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="mb-16 text-center">
+                    <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Risk Committee</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter text-on-surface">
+                        Strategic Considerations.
+                    </h2>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Q1 -->
+                    <div class="bg-surface p-8 border-l-2 border-primary rounded-r-sm">
+                        <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">What does "Bring Your Own Cloud" actually mean?</h4>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            We deploy the GAJAH Stack directly into <strong class="text-white">your</strong> AWS, Azure, or on-premises environment. You retain full data sovereignty and pay your cloud provider directly at raw compute costs. Hachico does not host your data; we maintain a secure, encrypted management tunnel to keep the system healthy, ensuring zero vendor lock-in to an external hosting platform.
+                        </p>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="bg-surface p-8 border-l-2 border-secondary rounded-r-sm">
+                        <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">What is Hachico's "Exit Strategy"?</h4>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            This is our strongest differentiator. Because we build on standard open-source PostgreSQL and deploy infrastructure directly in your account, you retain complete control. If you ever decide to end our contract, <strong class="text-white">you keep everything.</strong> We hand over the encryption keys and administrative credentials. Your database continues running without interruption. No migration required. Zero technical debt in leaving.
+                        </p>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="bg-surface p-8 border-l-2 border-white/30 rounded-r-sm">
+                        <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">How does GAJAH compare to AWS RDS or Aurora?</h4>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            AWS RDS and Aurora charge a massive managed-service premium and severely limit low-level database control. The GAJAH Stack runs on raw EC2 or on-premises compute, frequently reducing infrastructure costs by 40–60%. Furthermore, it grants your engineers access to advanced extensions, host-level observability, and kernel tuning impossible in standard RDS environments.
+                        </p>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="bg-surface p-8 border-l-2 border-primary rounded-r-sm">
+                        <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">How do you mitigate key-person ("bus factor") risk?</h4>
+                        <p class="text-on-surface-variant leading-relaxed text-sm">
+                            Relying on a single internal DBA creates a critical single point of failure. Hachico eliminates this by combining self-healing cluster automation with dedicated, fractional database engineering oversight. We codify institutional knowledge into code (IaC) and operational practices—giving you an entire reliability team for a fraction of the cost of a single senior hire.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="consultation" class="py-32 px-6 lg:px-12 bg-surface-container-low pt-32 -mt-16">
+            <div class="max-w-[1000px] mx-auto bg-primary text-black rounded-sm overflow-hidden flex flex-col md:flex-row items-center justify-between p-12 md:p-20 relative shadow-[0_0_50px_rgba(253,193,40,0.1)] hover:shadow-[0_0_80px_rgba(253,193,40,0.2)] transition-shadow duration-500">
+                <div class="absolute inset-0 bg-white/10 mix-blend-overlay pointer-events-none"></div>
+                <div class="relative z-10 md:w-2/3 mb-10 md:mb-0 text-center md:text-left">
+                    <span class="font-label text-black/60 tracking-[0.3em] uppercase text-xs mb-4 block font-black">Secure Your Infrastructure</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter mb-4 leading-none uppercase">
+                        End The <br />Licensing Trap.
+                    </h2>
+                    <p class="font-body font-bold text-lg max-w-md mx-auto md:mx-0">
+                        Request the technical whitepaper, or speak directly with an architect about deploying the GAJAH Stack.
+                    </p>
+                </div>
+                <div class="relative z-10 md:w-1/3 flex flex-col gap-4">
+                    <a href="mailto:hachico@hachico.my?subject=GAJAH Stack Consultation" class="bg-black text-primary text-center px-8 py-5 rounded-sm font-black text-sm tracking-[0.2em] uppercase transition-all hover:bg-white active:scale-95 shadow-xl">
+                        Contact Leadership
+                    </a>
+                    <a href="mailto:hachico@hachico.my?subject=GAJAH Stack Whitepaper Request" class="bg-transparent border-2 border-black text-black text-center px-8 py-4 rounded-sm font-black text-sm tracking-[0.1em] uppercase transition-all hover:bg-black/5 active:scale-95">
+                        Request Whitepaper
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full border-t border-white/5 py-12 md:py-20">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-12 md:space-y-0 w-full mb-16">
+                <div class="flex flex-col gap-4">
+                    <div
+                        class="text-xl font-bold text-white font-headline uppercase tracking-tighter flex items-center gap-2">
+                        HACHICO <span class="text-secondary text-xs tracking-widest font-normal">| GAJAH STACK</span>
+                    </div>
+                    <p class="text-[#adaaaa] font-body text-sm max-w-xs leading-relaxed">
+                        Your data is your most valuable asset. It deserves infrastructure that is guarded, automated, and
+                        strictly yours.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-x-12 gap-y-6">
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="/">Main Site</a>
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#stack">The Stack</a>
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#specs">Specs</a>
+                    <a class="text-[#adaaaa] hover:text-[#F879E0] transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#intel">FAQ</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <span class="font-body text-sm text-[#adaaaa] text-center md:text-left">
+                    &copy; 2026 Hachico.my. Guarding data sovereignty for modern enterprises.
+                </span>
+                <div class="flex gap-6 items-center">
+                    <!-- Note the absolute paths with leading slashes so they resolve correctly from the /gajah/ folder -->
+                    <a href="/privacy.html"
+                        class="text-[#adaaaa] hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest">Privacy</a>
+                    <a href="/terms.html"
+                        class="text-[#adaaaa] hover:text-secondary transition-colors text-xs font-bold uppercase tracking-widest">Terms</a>
+                    <span class="w-px h-4 bg-white/20 mx-2"></span>
+                    <a href="mailto:hachico@hachico.my"
+                        class="material-symbols-outlined text-[#adaaaa] hover:text-white transition-colors cursor-pointer"
+                        data-icon="mail">mail</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <button id="backToTop" aria-label="Back to top">↑</button>
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const links = document.querySelectorAll('.mobile-link');
 
-    <script src="../js/main.js"></script>
+            function toggleMenu() {
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden');
+                    menu.classList.add('flex');
+                    icon.textContent = 'close';
+                } else {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                    icon.textContent = 'menu';
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+
+            links.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
 </body>
-
 </html>
