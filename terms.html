@@ -1,117 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark scroll-smooth" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Hachico</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terms of Service | Hachico</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H51X77RR2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-5H51X77RR2');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FDC128", secondary: "#F879E0", background: "#0e0e0e",
+                        surface: "#131313", "on-surface": "#ffffff", "on-surface-variant": "#adaaaa",
+                    },
+                    fontFamily: { headline: ["Manrope"], body: ["Manrope"], label: ["Manrope"] }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-header {
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
 </head>
 
-<body>
-    <div id="canvas-container">
-        <canvas id="canvas"></canvas>
-    </div>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-black">
 
-    <nav class="navbar">
-        <div class="container" style="display:flex; justify-content:space-between; width:100%;">
-            <a href="index.html" class="logo">
-                <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Hachico Logo">
-                    <title>Hachico Logo</title>
-                    <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
-                    <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
-                    <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
-                    <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
-                    <circle cx="24" cy="70" r="3.5" fill="#000000" />
-                    <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
-                </svg>
-                <span class="logo-text">hachico</span>
-            </a>
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 glass-header border-b border-white/5 transition-all">
+        <nav class="flex justify-between items-center px-6 md:px-10 py-6 w-full max-w-[1920px] mx-auto">
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                <div
+                    class="h-8 w-8 rounded-[22%] border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] overflow-hidden flex-shrink-0 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(253,193,40,0.4)] group-hover:border-primary/50">
+                    <svg class="w-full h-full block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                        aria-label="Hachico Logo">
+                        <title>Hachico Logo</title>
+                        <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
+                        <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+                        <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
+                        <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
+                        <circle cx="24" cy="70" r="3.5" fill="#000000" />
+                        <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
+                    </svg>
+                </div>
+                <div
+                    class="text-2xl font-black tracking-tighter text-white uppercase font-headline transition-colors duration-500 group-hover:text-primary">
+                    HACHICO
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-10">
+                <a class="text-[#adaaaa] hover:text-white pb-1 text-[12px] font-bold uppercase tracking-widest transition-all"
+                    href="/">Return to Main Site</a>
+            </div>
+        </nav>
+    </header>
 
-            <button class="mobile-menu-btn" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+    <main class="pt-40 pb-32 px-6 lg:px-12 max-w-[900px] mx-auto">
+        <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">Legal
+            Doctrine</span>
+        <h1 class="font-headline text-4xl md:text-5xl font-black tracking-tighter text-white mb-4 uppercase">Terms of
+            Service</h1>
+        <p
+            class="text-on-surface-variant text-sm font-bold uppercase tracking-widest mb-16 border-b border-white/10 pb-6">
+            Effective Date: January 2025</p>
 
-            <ul class="nav-links">
-                <li><a href="gajah/index.html">The GAJAH Stack</a></li>
-                <li>
-                    <button id="theme-toggle" class="theme-toggle">☀ Light Mode</button>
-                </li>
+        <div class="text-on-surface-variant text-lg leading-relaxed space-y-6">
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">1. Agreement to
+                Terms</h2>
+            <p>By accessing www.hachico.my or engaging <strong class="text-white">Hachico</strong> ("Hachico PLT", "we",
+                "us") for services, you agree to be bound by these Terms of Service. These terms apply to all visitors,
+                users, and clients.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">2. Scope of
+                Services</h2>
+            <p>Hachico provides professional services including Software Development, IT Consultancy, and Copywriting.
+            </p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">3. Intellectual
+                Property (IP) Rights</h2>
+            <p>We distinguish between "Background IP" (Hachico's) and "Deliverables" (Client's owned code/copy).</p>
+            <ul class="list-none space-y-4 pl-0">
+                <li class="pl-6 border-l-2 border-white/10"><strong class="text-white">Client Deliverables:</strong>
+                    Upon full payment of fees, the copyright for the specific software code or creative copy created
+                    specifically for the Client shall transfer to the Client.</li>
+                <li class="pl-6 border-l-2 border-primary"><strong class="text-white">Hachico Background IP:</strong>
+                    Hachico retains all rights to its pre-existing tools, frameworks (including the core architecture of
+                    The GAJAH Stack), methodologies, and libraries used to create the deliverables. The Client receives
+                    a non-exclusive license to use these tools as part of the final product.</li>
             </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">4. Client
+                Obligations</h2>
+            <p>To ensure successful project delivery, the Client agrees to provide necessary access to server
+                environments, clear project briefs, and timely feedback. Hachico is not liable for delays caused by the
+                Client's failure to provide required assets.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">5. Limitation of
+                Liability</h2>
+            <p>While we strive for perfection ("Precision" being one of our core values), Hachico shall not be liable
+                for any indirect, incidental, or consequential damages, including loss of data or business interruption,
+                arising from the use of our software or services.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">6. Third-Party
+                Tools</h2>
+            <p>Our solutions may integrate with third-party technologies (e.g., Open Source libraries, Cloud providers).
+                We act as consultants for these tools but do not own them; their respective terms of service apply.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">7. Governing Law
+            </h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of <strong
+                    class="text-white">Malaysia</strong>. Any disputes shall be resolved exclusively in the courts of
+                Malaysia.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-4 font-headline uppercase tracking-tight">8. Contact</h2>
+            <p>For legal notices or questions regarding these terms:</p>
+            <p class="font-bold text-white">Email: <a href="mailto:hachico@hachico.my"
+                    class="text-secondary hover:text-white transition-colors">hachico@hachico.my</a></p>
         </div>
-    </nav>
-
-    <main class="legal-container">
-        <h1>Terms of Service</h1>
-        <p><strong>Effective Date:</strong> January 2025</p>
-
-        <h2>1. Agreement to Terms</h2>
-        <p>By accessing www.hachico.my or engaging <strong>Hachico</strong> ("Hachico PLT", "we", "us") for services,
-            you agree to be bound by these Terms of Service. These terms apply to all visitors, users, and clients.</p>
-
-        <h2>2. Scope of Services</h2>
-        <p>Hachico provides professional services including Software Development, IT Consultancy, and Copywriting.</p>
-
-        <h2>3. Intellectual Property (IP) Rights</h2>
-        <p>We distinguish between "Background IP" (Hachico's) and "Deliverables" (Client's owned code/copy).</p>
-        <ul>
-            <li><strong>Client Deliverables:</strong> Upon full payment of fees, the copyright for the specific software
-                code or creative copy created specifically for the Client shall transfer to the Client.</li>
-            <li><strong>Hachico Background IP:</strong> Hachico retains all rights to its pre-existing tools, frameworks
-                (including the core architecture of The GAJAH Stack), methodologies, and libraries used to create the
-                deliverables. The Client receives a non-exclusive license to use these tools as part of the final
-                product.</li>
-        </ul>
-
-        <h2>4. Client Obligations</h2>
-        <p>To ensure successful project delivery, the Client agrees to provide necessary access to server environments,
-            clear project briefs, and timely feedback. Hachico is not liable for delays caused by the Client's failure
-            to provide required assets.</p>
-
-        <h2>5. Limitation of Liability</h2>
-        <p>While we strive for perfection ("Precision" being one of our core values), Hachico shall not be liable for
-            any indirect, incidental, or consequential damages, including loss of data or business interruption, arising
-            from the use of our software or services.</p>
-
-        <h2>6. Third-Party Tools</h2>
-        <p>Our solutions may integrate with third-party technologies (e.g., Open Source libraries, Cloud providers). We
-            act as consultants for these tools but do not own them; their respective terms of service apply.</p>
-
-        <h2>7. Governing Law</h2>
-        <p>These Terms shall be governed by and construed in accordance with the laws of <strong>Malaysia</strong>. Any
-            disputes shall be resolved exclusively in the courts of Malaysia.</p>
-
-        <h2>8. Contact</h2>
-        <p>For legal notices or questions regarding these terms:</p>
-        <p><strong>Email:</strong> <a href="mailto:hachico@hachico.my"
-                style="color: var(--accent-color);">hachico@hachico.my</a></p>
     </main>
 
-    <footer id="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2026 hachico.my All rights reserved.</p>
-                <div class="mt-10" style="margin-bottom: 20px;">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <span class="separator">|</span>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full border-t border-white/5 py-12">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <span class="font-body text-sm text-[#adaaaa] text-center md:text-left">
+                &copy; 2026 Hachico.my. All Rights Reserved.
+            </span>
+            <div class="flex gap-6 text-sm font-bold tracking-widest uppercase">
+                <a href="/privacy.html" class="text-[#adaaaa] hover:text-primary transition-colors">Privacy</a>
+                <a href="/terms.html" class="text-[#adaaaa] hover:text-secondary transition-colors">Terms</a>
             </div>
         </div>
     </footer>
-
-    <button id="backToTop" aria-label="Back to top">↑</button>
-
-    <script src="js/main.js"></script>
 </body>
 
 </html>
