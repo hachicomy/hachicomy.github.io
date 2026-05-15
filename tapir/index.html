@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>TAPIR | AI/ML Intelligence Platform for Energy by Hachico</title>
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hachico.my/tapir/">
+    <meta property="og:title" content="TAPIR | AI/ML Intelligence Platform for Energy">
+    <meta property="og:description" content="Stop building science projects. Start trading on intelligence. TAPIR is the pre-integrated AI/ML foundation for the energy sector.">
+    <meta property="og:image" content="https://www.hachico.my/tapir/tapir-preview.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="hachico.my">
+    <meta name="twitter:url" content="https://www.hachico.my/tapir/">
+    <meta name="twitter:title" content="TAPIR | AI/ML Intelligence Platform for Energy">
+    <meta name="twitter:description" content="Stop building science projects. Start trading on intelligence. TAPIR is the pre-integrated AI/ML foundation for the energy sector.">
+    <meta name="twitter:image" content="https://www.hachico.my/tapir/tapir-preview.png">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H51X77RR2"></script>
+    <script>
+      window.dataLayer = window.dataLayer ||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5H51X77RR2');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FDC128", /* Hachico Yellow */
+                        "secondary": "#F879E0", /* Hachico Pink */
+                        "background": "#0e0e0e",
+                        "surface": "#131313",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#adaaaa",
+                        "outline-variant": "#2a2a2a",
+                        "surface-container-high": "#1c1c1c",
+                        "surface-container-low": "#0f0f0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .cta-primary {
+            background-color: #FDC128;
+            color: #000000;
+        }
+        .cta-secondary {
+            border: 1px solid #F879E0;
+            color: #F879E0;
+        }
+        .insight-rail {
+            width: 2px;
+            background-color: #FDC128;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(253, 193, 40, 0.4);
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 20px rgba(248, 121, 224, 0.4);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-black">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 glass-header border-b border-white/5 transition-all">
+        <nav class="flex justify-between items-center px-6 md:px-10 py-6 w-full max-w-[1920px] mx-auto relative">
+            <a href="/" class="flex items-center gap-3 cursor-pointer group">
+                <div class="h-8 w-8 rounded-[22%] border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.15)] overflow-hidden flex-shrink-0 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(253,193,40,0.4)] group-hover:border-primary/50">
+                    <svg class="w-full h-full block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Hachico Logo">
+                        <title>Hachico Logo</title>
+                        <rect x="0" y="0" width="100" height="100" rx="22" fill="#000000" />
+                        <line x1="18" y1="15" x2="-2" y2="65" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+                        <line x1="50" y1="18" x2="78" y2="82" stroke="#FFB81C" stroke-width="11" stroke-linecap="round" />
+                        <ellipse cx="24" cy="70" rx="6.5" ry="8.5" fill="#FFFFFF" />
+                        <circle cx="24" cy="70" r="3.5" fill="#000000" />
+                        <ellipse cx="43" cy="75" rx="6.5" ry="5" fill="#FF66CC" />
+                    </svg>
+                </div>
+                <div class="text-2xl font-black tracking-tighter text-white uppercase font-headline transition-colors duration-500 group-hover:text-primary">
+                    HACHICO
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-white/20 mx-2"></div>
+                <div class="hidden sm:block text-xs font-bold tracking-[0.3em] uppercase text-primary">TAPIR</div>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-10">
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#reality">Reality Check</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#architecture">Architecture</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#arsenal">Modules</a>
+                <a class="text-[#adaaaa] hover:text-white pb-1 font-['Manrope'] uppercase tracking-[0.05em] text-[12px] font-semibold transition-all duration-300"
+                    href="#roadmap">Roadmap</a>
+            </div>
+            
+            <a href="#consultation"
+                class="hidden md:block cta-primary px-6 py-2.5 rounded-sm font-bold text-[12px] uppercase tracking-wider hover:opacity-90 scale-95 active:scale-90 transition-transform shadow-[0_0_15px_rgba(253,193,40,0.3)]">
+                Request Briefing
+            </a>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-primary transition-colors focus:outline-none flex items-center justify-center p-2">
+                <span class="material-symbols-outlined text-3xl transition-transform" id="menu-icon">menu</span>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-[#0e0e0e]/95 backdrop-blur-xl border-b border-white/5 flex-col items-center py-10 space-y-8 hidden md:hidden shadow-2xl">
+            <a href="#reality" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Reality Check</a>
+            <a href="#architecture" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Architecture</a>
+            <a href="#arsenal" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Modules</a>
+            <a href="#roadmap" class="mobile-link text-white text-lg font-bold uppercase tracking-widest hover:text-primary transition-colors">Roadmap</a>
+            <a href="#consultation" class="mobile-link cta-primary px-8 py-3 rounded-sm font-bold text-sm uppercase tracking-wider mt-4 shadow-[0_0_20px_rgba(253,193,40,0.2)]">Request Briefing</a>
+            <a href="/" class="mobile-link text-secondary text-sm font-bold uppercase tracking-widest hover:text-white transition-colors mt-4">← Return to Main Site</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-12 pt-20">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-20 grayscale contrast-125"
+                    alt="Abstract data nodes and industrial background"
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400" />
+                <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+                <div class="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+                <div class="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none"></div>
+            </div>
+            <div class="relative z-10 max-w-[1400px] w-full mt-10 md:mt-0">
+                <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+                    <div class="insight-rail hidden lg:block h-64 mt-6"></div>
+                    <div class="flex-1">
+                        <span class="font-label text-primary tracking-[0.4em] uppercase text-xs mb-6 block font-bold text-center lg:text-left">The Pre-Integrated AI/ML Arsenal</span>
+                        <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-on-surface text-center lg:text-left">
+                            Data is Noise.<br>
+                            <span class="text-primary text-glow">Intelligence is Alpha.</span>
+                        </h1>
+                        <p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+                            Stop funding 24-month software science projects. TAPIR is the production-grade AI foundation that turns SCADA feeds and market fragmentation into immediate trading edge and operational foresight.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                            <a href="#consultation"
+                                class="inline-flex justify-center items-center cta-primary px-12 py-5 rounded-sm font-black text-sm tracking-[0.1em] uppercase transition-all hover:scale-[1.05] active:scale-95 shadow-[0_0_30px_rgba(253,193,40,0.2)]">
+                                Request a Strategic Demo
+                            </a>
+                            <a href="#architecture"
+                                class="inline-flex justify-center items-center cta-secondary border-2 px-12 py-5 rounded-sm font-black text-sm tracking-[0.1em] uppercase hover:bg-secondary/10 transition-all">
+                                Inspect the Platform
+                            </a>
+                        </div>
+                        <div class="mt-10 flex gap-4 justify-center lg:justify-start">
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest font-bold text-on-surface-variant bg-white/5 backdrop-blur-sm">Open-Source First</span>
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest font-bold text-on-surface-variant bg-white/5 backdrop-blur-sm">Hydrocarbon-Native</span>
+                            <span class="px-4 py-1.5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest font-bold text-on-surface-variant bg-white/5 backdrop-blur-sm">Production MLOps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Pain Points (The Reality Check) -->
+        <section id="reality" class="py-32 px-6 lg:px-12 bg-surface-container-low border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+                    <div>
+                        <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Intelligence Gap</span>
+                        <h2 class="font-headline text-4xl md:text-6xl font-black tracking-tighter mb-8 text-on-surface leading-none">
+                            Your AI Initiative <br /><span class="text-secondary text-glow-pink">is Bleeding Capital.</span>
+                        </h2>
+                        <p class="font-body text-on-surface-variant text-lg leading-relaxed mb-10">
+                            Energy companies generate petabytes of data, yet almost none of it reaches a decision-maker before it’s stale. You are trying to act like a Silicon Valley software lab instead of an energy powerhouse.
+                        </p>
+                        <ul class="space-y-8">
+                            <li class="flex items-start gap-4 group">
+                                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">construction</span>
+                                <div>
+                                    <strong class="text-white block mb-1">The Infrastructure Trap</strong>
+                                    <span class="text-on-surface-variant text-sm">Building an ML stack in-house takes 24 months. Most enterprise AI dies between the lab and production.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 group">
+                                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">history_toggle_off</span>
+                                <div>
+                                    <strong class="text-white block mb-1">Reactive by Default</strong>
+                                    <span class="text-on-surface-variant text-sm">Without predictive intelligence, your team responds to failure. Equipment breaks. Prices move. The commercial damage is already done.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4 group">
+                                <span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">storage</span>
+                                <div>
+                                    <strong class="text-white block mb-1">The Data Silo Crisis</strong>
+                                    <span class="text-on-surface-variant text-sm">SCADA historians, ERPs, and market feeds live in isolation. Your "integrated report" is manually assembled and 30 days late.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Data Vis Card: Time to Value -->
+                    <div class="bg-surface p-12 rounded-sm border border-white/5 shadow-2xl relative overflow-hidden group hover:border-primary/50 transition-colors duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent z-0"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-white font-headline text-2xl font-black tracking-tighter mb-8">Time to Production Edge</h3>
+                            
+                            <div class="space-y-10 mb-12 relative">
+                                <!-- DIY Approach -->
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                                        <span>DIY Infrastructure Build</span>
+                                        <span class="text-secondary">18 - 24 Months</span>
+                                    </div>
+                                    <div class="w-full h-6 bg-white/10 rounded-sm overflow-hidden">
+                                        <div class="w-full h-full bg-secondary/50 border border-secondary transition-all duration-1000 flex items-center px-4">
+                                            <span class="text-[9px] uppercase tracking-widest text-white/50 font-bold hidden sm:block">Hiring • Cloud Setup • Integrations • Lab Testing • Deployment Hell</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- TAPIR Approach -->
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3">
+                                        <span>TAPIR Foundation</span>
+                                        <span class="text-primary text-glow">20 Weeks</span>
+                                    </div>
+                                    <div class="w-full h-6 bg-white/10 rounded-sm flex flex-col relative">
+                                        <div class="w-[20%] h-full bg-primary shadow-[0_0_20px_rgba(253,193,40,0.8)] transition-transform group-hover:scale-y-110"></div>
+                                        <div class="absolute top-full mt-2 left-0 w-[20%] text-primary text-[10px] font-bold tracking-widest uppercase text-right leading-tight">
+                                            Production ML Live
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center border-t border-white/10 pt-10 mt-12">
+                                <span class="text-primary text-4xl font-black mb-2 block font-headline tracking-tighter">Eliminate the Lag.</span>
+                                <span class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Ship models, not infrastructure.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2.5: The TAPIR Acronym Breakdown -->
+        <section class="py-24 px-6 lg:px-12 bg-background border-t border-white/5">
+            <div class="max-w-[1400px] mx-auto text-center mb-16">
+                <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The TAPIR Principles</span>
+                <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter text-on-surface">The Anatomy of an Edge.</h2>
+            </div>
+            
+            <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="group relative p-8 bg-surface rounded-sm border border-white/5 hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-4xl font-black font-headline text-white mb-4 block">T</span>
+                    <h3 class="font-bold text-primary uppercase tracking-widest text-xs mb-3">Tactical</h3>
+                    <p class="text-sm text-on-surface-variant">We don't build dashboards for the sake of data. Every model generates actionable, directional signals.</p>
+                </div>
+                <div class="group relative p-8 bg-surface rounded-sm border border-white/5 hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-4xl font-black font-headline text-white mb-4 block">A</span>
+                    <h3 class="font-bold text-primary uppercase tracking-widest text-xs mb-3">Analytics</h3>
+                    <p class="text-sm text-on-surface-variant">Uncompromising, high-fidelity data processing capable of ingesting petabytes of operational history.</p>
+                </div>
+                <div class="group relative p-8 bg-surface rounded-sm border border-white/5 hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-4xl font-black font-headline text-white mb-4 block">P</span>
+                    <h3 class="font-bold text-primary uppercase tracking-widest text-xs mb-3">Platform</h3>
+                    <p class="text-sm text-on-surface-variant">A unified, open-source foundation. No vendor lock-in. No proprietary data formats. You own it.</p>
+                </div>
+                <div class="group relative p-8 bg-surface rounded-sm border border-white/5 hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-4xl font-black font-headline text-white mb-4 block">I</span>
+                    <h3 class="font-bold text-primary uppercase tracking-widest text-xs mb-3">Insights</h3>
+                    <p class="text-sm text-on-surface-variant">Moving beyond descriptive reporting into definitive, predictive foresight and autonomous alerts.</p>
+                </div>
+                <div class="group relative p-8 bg-surface rounded-sm border border-white/5 hover:border-primary/50 transition-all">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="text-4xl font-black font-headline text-white mb-4 block">R</span>
+                    <h3 class="font-bold text-primary uppercase tracking-widest text-xs mb-3">Reporting</h3>
+                    <p class="text-sm text-on-surface-variant">Immutable, Atlas-governed lineage ensuring every AI output is fully compliant and auditable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Architecture -->
+        <section id="architecture" class="py-32 px-6 lg:px-12 bg-surface-container-low border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="lg:sticky lg:top-32 h-fit">
+                    <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Architecture</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter text-on-surface mb-6">Five Layers.<br>One Intelligence Stack.</h2>
+                    <p class="text-on-surface-variant text-lg leading-relaxed border-l-2 border-primary pl-6">
+                        A Kubernetes-native, open-source-first platform engineered specifically for energy. We build from the data bedrock up to the commercial interface, so your data science team can focus purely on Alpha generation.
+                    </p>
+                </div>
+                
+                <div class="space-y-6 relative">
+                    <!-- Vertical Line (Gradient Pink to Yellow reading down) -->
+                    <div class="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-secondary to-primary opacity-30 hidden md:block"></div>
+                    
+                    <!-- Layers (Reordered 1 to 5) -->
+                    <div class="group bg-surface p-8 rounded-sm border border-white/5 hover:border-secondary/50 transition-all duration-300 flex items-start gap-6 relative md:ml-12">
+                        <div class="absolute -left-12 top-8 w-12 h-0.5 bg-secondary/30 hidden md:block group-hover:bg-secondary transition-colors"></div>
+                        <div class="w-12 h-12 rounded-sm border-2 border-secondary bg-secondary/10 flex items-center justify-center font-black text-xl shrink-0 text-secondary shadow-[0_0_15px_rgba(248,121,224,0.3)]">1</div>
+                        <div>
+                            <h3 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">Data Foundation</h3>
+                            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Apache Kafka for real-time SCADA, MinIO data lake, Spark transforms, PostgreSQL + ClickHouse, governed by Apache Atlas lineage.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-surface p-8 rounded-sm border border-white/5 hover:border-white/30 transition-all duration-300 flex items-start gap-6 relative md:ml-12">
+                        <div class="absolute -left-12 top-8 w-12 h-0.5 bg-white/20 hidden md:block group-hover:bg-white/50 transition-colors"></div>
+                        <div class="w-12 h-12 rounded-sm bg-[#1a1a1a] border border-white/10 flex items-center justify-center font-black text-xl shrink-0 text-white group-hover:border-white/50 transition-colors">2</div>
+                        <div>
+                            <h3 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">ML Development</h3>
+                            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Production forecasting (Prophet, XGBoost), price prediction (VAR, TFT), and local NLP sentiment analysis via Llama 3 / Mistral.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-surface p-8 rounded-sm border border-white/5 hover:border-white/30 transition-all duration-300 flex items-start gap-6 relative md:ml-12">
+                        <div class="absolute -left-12 top-8 w-12 h-0.5 bg-white/20 hidden md:block group-hover:bg-white/50 transition-colors"></div>
+                        <div class="w-12 h-12 rounded-sm bg-[#1a1a1a] border border-white/10 flex items-center justify-center font-black text-xl shrink-0 text-white group-hover:border-white/50 transition-colors">3</div>
+                        <div>
+                            <h3 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">ML Lifecycle (MLflow)</h3>
+                            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Experiment tracking, model registry with strict governance, reproducible serving, and champion/challenger automated promotion.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-surface p-8 rounded-sm border border-white/5 hover:border-white/30 transition-all duration-300 flex items-start gap-6 relative md:ml-12">
+                        <div class="absolute -left-12 top-8 w-12 h-0.5 bg-white/20 hidden md:block group-hover:bg-white/50 transition-colors"></div>
+                        <div class="w-12 h-12 rounded-sm bg-[#1a1a1a] border border-white/10 flex items-center justify-center font-black text-xl shrink-0 text-white group-hover:border-white/50 transition-colors">4</div>
+                        <div>
+                            <h3 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">Deployment & Monitoring</h3>
+                            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Kubernetes orchestration, Evidently AI drift detection, Prometheus + Grafana telemetry, and automated retraining loops.</p>
+                        </div>
+                    </div>
+
+                    <div class="group bg-surface p-8 rounded-sm border border-white/5 hover:border-primary/50 transition-all duration-300 flex items-start gap-6 relative md:ml-12">
+                        <div class="absolute -left-12 top-8 w-12 h-0.5 bg-primary/30 hidden md:block group-hover:bg-primary transition-colors"></div>
+                        <div class="w-12 h-12 rounded-sm bg-gradient-to-br from-secondary to-primary flex items-center justify-center font-black text-xl shrink-0 text-black shadow-lg">5</div>
+                        <div>
+                            <h3 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">Application & Integration</h3>
+                            <p class="font-body text-sm text-on-surface-variant leading-relaxed">FastAPI backend, React Trader Dashboard, Secure ETRM connectors (mTLS + HMAC-SHA256), and OAuth2 RBAC.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Feature Arsenal (Bento Grid) -->
+        <section id="arsenal" class="py-32 px-6 lg:px-12 bg-background border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-20">
+                    <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Commercial Output</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter mb-4 text-on-surface">Intelligence Modules.</h2>
+                    <p class="text-on-surface-variant text-lg">Independently deployable modules delivering measurable value from day one.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 min-h-[600px]">
+                    <!-- Main Hero Bento (Module 01) -->
+                    <div class="md:col-span-2 md:row-span-2 bg-surface rounded-sm border border-white/5 hover:border-primary/30 transition-colors overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-[#0a0a0a]">
+                            <!-- Mock Data Viz Lines for Production -->
+                            <svg class="absolute bottom-0 w-full h-[60%] opacity-30 group-hover:opacity-50 transition-opacity" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,100 L0,50 Q25,30 50,60 T100,20 L100,100 Z" fill="url(#gradYellow)"/>
+                                <path d="M0,100 L0,70 Q30,80 60,40 T100,45 L100,100 Z" fill="url(#gradPink)"/>
+                                <defs>
+                                    <linearGradient id="gradYellow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FDC128"/><stop offset="100%" stop-color="transparent"/></linearGradient>
+                                    <linearGradient id="gradPink" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F879E0"/><stop offset="100%" stop-color="transparent"/></linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10"></div>
+                        <div class="absolute bottom-0 left-0 w-full p-10 z-20">
+                            <span class="font-label text-primary tracking-[0.2em] uppercase text-[10px] mb-2 block font-bold">Module 01</span>
+                            <h3 class="font-headline text-3xl font-black mb-3 text-white uppercase tracking-tight">Intelligent Production Optimisation</h3>
+                            <p class="text-on-surface-variant text-sm mb-4">Real-time AI analysis across wells and facilities. Identifies hidden inefficiencies and predicts equipment failure before unplanned downtime hits.</p>
+                            <ul class="text-xs text-on-surface-variant/80 space-y-2 font-bold uppercase tracking-wider">
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Live SCADA Anomaly Detection</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Remaining Useful Life (RUL) Models</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Automated Yield Recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Wide Bento (Module 02) -->
+                    <div class="md:col-span-2 bg-surface p-10 rounded-sm border border-white/5 group hover:border-secondary/30 transition-colors">
+                        <div class="flex justify-between items-start h-full flex-col sm:flex-row gap-6">
+                            <div>
+                                <span class="font-label text-secondary tracking-[0.2em] uppercase text-[10px] mb-2 block font-bold">Module 02</span>
+                                <h3 class="font-headline text-2xl font-black mb-2 text-white uppercase tracking-tight">Supply & Demand Forecasting</h3>
+                                <p class="text-on-surface-variant text-sm mb-6 max-w-sm">Time-series models fusing operational data with external economic/weather APIs for definitive short & long-horizon outlooks.</p>
+                                <div class="flex gap-3">
+                                    <span class="px-3 py-1 bg-[#1a1a1a] border border-white/10 rounded-sm text-[10px] font-bold uppercase tracking-widest text-secondary">Drift Detection</span>
+                                    <span class="px-3 py-1 bg-[#1a1a1a] border border-white/10 rounded-sm text-[10px] font-bold uppercase tracking-widest text-secondary">Scenario Planning</span>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined text-5xl text-secondary opacity-50 group-hover:opacity-100 transition-opacity">monitoring</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Small Bento (Module 03) -->
+                    <div class="bg-surface p-8 rounded-sm border border-white/5 group hover:border-secondary/30 transition-colors">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-label text-secondary tracking-[0.2em] uppercase text-[10px] block font-bold">Module 03</span>
+                            <span class="material-symbols-outlined text-secondary text-3xl opacity-50 group-hover:opacity-100 transition-opacity">candlestick_chart</span>
+                        </div>
+                        <h4 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">Market Intelligence</h4>
+                        <p class="text-on-surface-variant text-sm">Combines VAR, VECM, and TFT with local NLP sentiment analysis for price point forecasting.</p>
+                    </div>
+                    
+                    <!-- Small Bento (Module 04) -->
+                    <div class="bg-surface p-8 rounded-sm border border-white/5 group hover:border-primary/30 transition-colors">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-label text-primary tracking-[0.2em] uppercase text-[10px] block font-bold">Module 04</span>
+                            <span class="material-symbols-outlined text-primary text-3xl opacity-50 group-hover:opacity-100 transition-opacity">hub</span>
+                        </div>
+                        <h4 class="font-headline text-xl font-black mb-2 text-white uppercase tracking-tight">ETRM Integration</h4>
+                        <p class="text-on-surface-variant text-sm">Sends precision signals directly to your ETRM via mTLS. The commercial realization layer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Why TAPIR? (Comparison) -->
+        <section id="why-tapir" class="py-32 px-6 lg:px-12 bg-surface-container-low border-t border-white/5 pt-32 -mt-16">
+            <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+                <div>
+                    <span class="font-label text-primary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Strategic Shift</span>
+                    <h2 class="font-headline text-5xl md:text-6xl font-black tracking-tighter leading-none mb-8 text-white uppercase">
+                        Build vs. Buy vs. <br /><span class="text-primary text-glow">TAPIR.</span>
+                    </h2>
+                    <p class="text-on-surface-variant text-lg leading-relaxed border-l-2 border-primary pl-6">
+                        Legacy approaches force you to choose between expensive, black-box proprietary platforms or accumulating years of DIY infrastructure debt. TAPIR gives you ownership without the build-time.
+                    </p>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Legacy/DIY Box -->
+                    <div class="p-8 rounded-sm bg-surface border-l-4 border-secondary/50 border border-white/5 opacity-70">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">disabled_by_default</span> DIY / Legacy Build</span>
+                        <ul class="text-sm text-on-surface-variant space-y-3">
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] mt-0.5">close</span> 18-24 months to first production model.</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] mt-0.5">close</span> Requires rare MLOps + energy domain expertise.</li>
+                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] mt-0.5">close</span> Deep integration debt across fragmented tools.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- TAPIR Box -->
+                    <div class="p-8 rounded-sm bg-[#1a1a1a] border-l-4 border-primary shadow-[0_0_30px_rgba(253,193,40,0.15)] relative z-10 md:-ml-8 md:mr-8 border border-white/10">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_box</span> The TAPIR Advantage</span>
+                        <ul class="text-sm text-white font-bold space-y-4">
+                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl">check</span> Production-grade models live in 20 weeks.</li>
+                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl">check</span> Zero Vendor Lock-in (100% Open Source Stack).</li>
+                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl">check</span> Drift monitoring and Atlas lineage wired in from Phase 1.</li>
+                            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-xl">check</span> Deep hydrocarbon sector expertise in the architecture.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5.5: New Player Manifesto -->
+        <section class="py-24 px-6 lg:px-12 bg-background border-t border-white/5">
+            <div class="max-w-[1000px] mx-auto text-center">
+                <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">The Hard Truth</span>
+                <h2 class="font-headline text-3xl md:text-5xl font-black tracking-tighter mb-8 text-on-surface">Built for the Reality of Energy Markets.</h2>
+                <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                    We built TAPIR because we watched too many energy companies hire armies of data scientists, buy millions in cloud credits, and still have nothing in production two years later. They treated AI like an IT science project instead of a commercial weapon.
+                </p>
+                <p class="text-white text-xl md:text-2xl font-bold leading-relaxed">
+                    TAPIR bypasses the build trap. We engineered a singular, hardened ML foundation so your team can stop configuring infrastructure and start deploying models that immediately impact the P&L.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 6: Roadmap -->
+        <section id="roadmap" class="py-24 px-6 lg:px-12 bg-surface-container-low border-t border-white/5">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="text-center mb-16">
+                    <span class="font-label text-secondary tracking-[0.3em] uppercase text-xs mb-4 block font-bold">Implementation Timeline</span>
+                    <h2 class="font-headline text-3xl md:text-5xl font-black tracking-tighter mb-4 text-on-surface">20 Weeks to Production.</h2>
+                    <p class="text-on-surface-variant text-lg">A ruthless, sprint-by-sprint delivery plan with go/no-go gates.</p>
+                </div>
+                
+                <div class="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-8 space-y-12 py-4">
+                    <!-- Phase 1 -->
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute -left-[37px] md:-left-[41px] top-1 w-6 h-6 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold text-[10px] text-primary z-10 group-hover:scale-110 transition-transform">1</div>
+                        <span class="text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">Weeks 1-4</span>
+                        <h3 class="font-headline text-xl font-black text-white mb-2">Data Foundation Live</h3>
+                        <p class="text-sm text-on-surface-variant">Kubernetes cluster, CI/CD pipeline, Kafka ingestion active, PostgreSQL + ClickHouse initialised, MLflow and Apache Atlas lineage wired in.</p>
+                    </div>
+                    <!-- Phase 2 -->
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute -left-[37px] md:-left-[41px] top-1 w-6 h-6 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold text-[10px] text-primary z-10 group-hover:scale-110 transition-transform">2</div>
+                        <span class="text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">Weeks 5-8</span>
+                        <h3 class="font-headline text-xl font-black text-white mb-2">Production Champion</h3>
+                        <p class="text-sm text-on-surface-variant">First ML forecasting model trained, validated, and live in Kubernetes. Evidently AI drift monitoring active. Retraining DAG deployed.</p>
+                    </div>
+                    <!-- Phase 3 -->
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute -left-[37px] md:-left-[41px] top-1 w-6 h-6 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold text-[10px] text-primary z-10 group-hover:scale-110 transition-transform">3</div>
+                        <span class="text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">Weeks 9-13</span>
+                        <h3 class="font-headline text-xl font-black text-white mb-2">Trader Intelligence Suite</h3>
+                        <p class="text-sm text-on-surface-variant">Price prediction models (VAR, TFT + NLP news fusion) live. React Trader Dashboard deployed. FastAPI serving predictions via REST/WebSockets.</p>
+                    </div>
+                    <!-- Phase 4 -->
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute -left-[37px] md:-left-[41px] top-1 w-6 h-6 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold text-[10px] text-primary z-10 group-hover:scale-110 transition-transform">4</div>
+                        <span class="text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">Weeks 14-17</span>
+                        <h3 class="font-headline text-xl font-black text-white mb-2">ETRM Integration</h3>
+                        <p class="text-sm text-on-surface-variant">Secure ETRM integration (mTLS + HMAC-SHA256). Automated champion promotion configured and tested against trading sandbox environments.</p>
+                    </div>
+                    <!-- Phase 5 -->
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute -left-[37px] md:-left-[41px] top-1 w-6 h-6 bg-primary flex items-center justify-center font-bold text-[10px] text-black rounded-full z-10 shadow-[0_0_10px_rgba(253,193,40,0.8)] group-hover:scale-110 transition-transform">5</div>
+                        <span class="text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">Weeks 18-20</span>
+                        <h3 class="font-headline text-xl font-black text-white mb-2">Security Hardening & Go-Live</h3>
+                        <p class="text-sm text-on-surface-variant">Full security audit—zero critical CVEs. Disaster recovery validated. Platform uptime SLA established and commercial go-live.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Final CTA & Ecosystem -->
+        <section id="consultation" class="py-32 px-6 lg:px-12 bg-background border-t border-white/5">
+            <div class="max-w-[1000px] mx-auto bg-primary text-black rounded-sm overflow-hidden flex flex-col md:flex-row items-center justify-between p-12 md:p-20 relative shadow-[0_0_50px_rgba(253,193,40,0.15)] hover:shadow-[0_0_80px_rgba(253,193,40,0.25)] transition-shadow duration-500">
+                <div class="absolute inset-0 bg-white/10 mix-blend-overlay pointer-events-none"></div>
+                <div class="relative z-10 md:w-2/3 mb-10 md:mb-0 text-center md:text-left">
+                    <span class="font-label text-black/60 tracking-[0.3em] uppercase text-xs mb-4 block font-black">Lead The Intelligence Race</span>
+                    <h2 class="font-headline text-4xl md:text-5xl font-black tracking-tighter mb-4 leading-none uppercase">
+                        Stop Funding <br />Science Projects.
+                    </h2>
+                    <p class="font-body font-bold text-lg max-w-md mx-auto md:mx-0">
+                        Stop losing revenue to data you already own. Transition to predictive certainty in 20 weeks.
+                    </p>
+                </div>
+                <div class="relative z-10 md:w-1/3 flex flex-col gap-4">
+                    <a href="mailto:hello@hachico.my?subject=TAPIR Strategic Consultation" class="bg-black text-primary text-center px-8 py-5 rounded-sm font-black text-[13px] tracking-[0.1em] uppercase transition-all hover:bg-white hover:text-black active:scale-95 shadow-xl">
+                        Schedule Briefing
+                    </a>
+                    <a href="mailto:hello@hachico.my?subject=TAPIR Technical Whitepaper" class="bg-transparent border-2 border-black text-black text-center px-8 py-4 rounded-sm font-black text-[13px] tracking-[0.1em] uppercase transition-all hover:bg-black/5 active:scale-95">
+                        Get Whitepaper
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Integration & Standards Grid -->
+            <div class="max-w-[1400px] mx-auto mt-32 text-center">
+                <span class="font-label text-on-surface-variant/40 tracking-[0.5em] uppercase text-[10px] mb-12 block font-bold">Open-Source Technology Foundation</span>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-40 hover:opacity-100 transition-all duration-700 text-white">
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">KAFKA</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">KUBERNETES</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">MLFLOW</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">APACHE SPARK</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">AIRFLOW</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">CLICKHOUSE</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">EVIDENTLY AI</div>
+                    <div class="text-xl font-black font-headline tracking-widest text-on-surface-variant hover:text-white transition-colors">APACHE ATLAS</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0e0e0e] w-full border-t border-white/5 py-12 md:py-20">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-12 md:space-y-0 w-full mb-16">
+                <div class="flex flex-col gap-4">
+                    <div class="text-xl font-bold text-white font-headline uppercase tracking-tighter flex items-center gap-2">
+                        HACHICO <span class="text-primary text-xs tracking-widest font-normal">| TAPIR</span>
+                    </div>
+                    <p class="text-[#adaaaa] font-body text-sm max-w-xs leading-relaxed">
+                        The energy sector's pre-integrated AI/ML foundation. From raw data to profitable intelligence.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-x-12 gap-y-6">
+                    <a class="text-[#adaaaa] hover:text-primary transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="/">Main Site</a>
+                    <a class="text-[#adaaaa] hover:text-primary transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#architecture">Architecture</a>
+                    <a class="text-[#adaaaa] hover:text-primary transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="#arsenal">Modules</a>
+                    <a class="text-[#adaaaa] hover:text-primary transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="/teras">TERAS</a>
+                    <a class="text-[#adaaaa] hover:text-primary transition-colors duration-300 font-body text-sm uppercase tracking-widest"
+                        href="/gajah">GAJAH</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <span class="font-body text-sm text-[#adaaaa] text-center md:text-left">
+                    &copy; 2026 Hachico.my. Intelligence-First Analytics.
+                </span>
+                <div class="flex gap-6 items-center">
+                    <a href="/privacy.html" class="text-[#adaaaa] hover:text-primary transition-colors text-xs font-bold uppercase tracking-widest">Privacy</a>
+                    <a href="/terms.html" class="text-[#adaaaa] hover:text-secondary transition-colors text-xs font-bold uppercase tracking-widest">Terms</a>
+                    <span class="w-px h-4 bg-white/20 mx-2"></span>
+                    <a href="mailto:hello@hachico.my" class="material-symbols-outlined text-[#adaaaa] hover:text-white transition-colors cursor-pointer">mail</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const links = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden');
+                    menu.classList.add('flex');
+                    icon.textContent = 'close';
+                } else {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                    icon.textContent = 'menu';
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+
+            links.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+</body>
+</html>
